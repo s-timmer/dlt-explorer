@@ -22,6 +22,21 @@ import {
 } from "@/components/ui/table";
 import type { CatalogTable } from "@/lib/types";
 
+interface DatasetDescription {
+  description: string;
+  summary?: string;
+}
+
+async function getDescriptions(): Promise<Record<string, DatasetDescription>> {
+  const filePath = path.join(process.cwd(), "public/data/descriptions.json");
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return {};
+  }
+}
+
 async function getFullCatalog(): Promise<CatalogTable[]> {
   const filePath = path.join(process.cwd(), "public/data/catalog.json");
   const data = await fs.readFile(filePath, "utf-8");
@@ -149,9 +164,10 @@ export default async function TableDetailPage({
   params: Promise<{ name: string }>;
 }) {
   const { name } = await params;
-  const [fullCatalog, rows] = await Promise.all([
+  const [fullCatalog, rows, descriptions] = await Promise.all([
     getFullCatalog(),
     getTableData(name),
+    getDescriptions(),
   ]);
 
   const catalog = fullCatalog.find((t) => t.table_name === name) ?? null;
@@ -176,6 +192,7 @@ export default async function TableDetailPage({
   }
 
   const displayName = formatTableName(name);
+  const desc = descriptions[name];
   const visibleColumns = catalog.columns
     .filter((col) => !col.name.startsWith("_dlt_"))
     .sort((a, b) => fieldSortScore(a.name) - fieldSortScore(b.name));
@@ -207,8 +224,13 @@ export default async function TableDetailPage({
             {displayName}
           </h1>
           {name.includes("__") && (
-            <p className="text-sm font-mono text-muted-foreground mb-4">
+            <p className="text-sm font-mono text-muted-foreground mb-1">
               {name}
+            </p>
+          )}
+          {desc?.description && (
+            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+              {desc.description}
             </p>
           )}
           <div className="flex items-center gap-4 text-sm text-muted-foreground mt-3">

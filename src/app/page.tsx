@@ -19,6 +19,21 @@ async function getMetadata(): Promise<Metadata> {
   return JSON.parse(data);
 }
 
+interface DatasetDescription {
+  description: string;
+  summary?: string;
+}
+
+async function getDescriptions(): Promise<Record<string, DatasetDescription>> {
+  const filePath = path.join(process.cwd(), "public/data/descriptions.json");
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data);
+  } catch {
+    return {};
+  }
+}
+
 interface EntityGroup {
   parent: CatalogTable;
   children: CatalogTable[];
@@ -93,7 +108,11 @@ function getPreviewColumns(table: CatalogTable, max: number = 6): string[] {
 }
 
 export default async function CatalogPage() {
-  const [catalog, metadata] = await Promise.all([getCatalog(), getMetadata()]);
+  const [catalog, metadata, descriptions] = await Promise.all([
+    getCatalog(),
+    getMetadata(),
+    getDescriptions(),
+  ]);
 
   const entities = groupByEntity(catalog);
   const dltTables = catalog.filter((t) => t.table_name.startsWith("_dlt_"));
@@ -124,7 +143,7 @@ export default async function CatalogPage() {
         <section className="mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {entities.map(({ parent, children }) => {
-              const previewCols = getPreviewColumns(parent);
+              const desc = descriptions[parent.table_name];
               return (
                 <Card key={parent.table_name} className="overflow-hidden py-0 gap-0">
                   <CardContent className="p-0">
@@ -136,15 +155,16 @@ export default async function CatalogPage() {
                           {formatEntityName(parent.table_name)}
                         </h3>
                       </div>
-                      <p className="text-xs font-mono text-muted-foreground leading-relaxed ml-[30px]">
-                        {previewCols.join(", ")}
-                        {parent.columns.length > previewCols.length && (
-                          <span className="text-muted-foreground/50">
-                            {" "}
-                            +{parent.columns.length - previewCols.length} more
-                          </span>
-                        )}
-                      </p>
+                      {desc?.description && (
+                        <p className="text-sm text-muted-foreground leading-relaxed ml-[30px]">
+                          {desc.description}
+                        </p>
+                      )}
+                      {desc?.summary && (
+                        <p className="text-xs text-muted-foreground/60 ml-[30px] mt-1">
+                          {desc.summary}
+                        </p>
+                      )}
                     </div>
 
                     {/* Table list */}

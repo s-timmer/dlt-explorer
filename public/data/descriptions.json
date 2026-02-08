@@ -1,0 +1,42 @@
+{
+  "issues": {
+    "description": "Issue tracking data: titles, states, assignees, labels and events for 3,576 issues",
+    "summary": "Jan 2025 — Feb 2026"
+  },
+  "pulls": {
+    "description": "Pull request activity: reviews, approvals, branch metadata and labels for 2,313 PRs"
+  },
+  "stargazers": {
+    "description": "GitHub users who starred the repository — 4,886 stargazers with profile data"
+  },
+  "repo": {
+    "description": "Repository metadata: settings, visibility, topics and ownership for dlt-hub/dlt"
+  },
+  "issues__assignees": {
+    "description": "Users assigned to issues — 1,841 assignments across all issues"
+  },
+  "issues__labels": {
+    "description": "Labels applied to issues — 1,664 label assignments"
+  },
+  "issues__performed_via_github_app__events": {
+    "description": "Events triggered through GitHub Apps on issues"
+  },
+  "pulls__assignees": {
+    "description": "Users assigned to pull requests — 1,044 assignments"
+  },
+  "pulls__labels": {
+    "description": "Labels applied to pull requests — 655 label assignments"
+  },
+  "pulls__requested_reviewers": {
+    "description": "Users requested to review pull requests — 559 review requests"
+  },
+  "pulls__base__repo__topics": {
+    "description": "Repository topics from PR base branches"
+  },
+  "pulls__head__repo__topics": {
+    "description": "Repository topics from PR head branches"
+  },
+  "repo__topics": {
+    "description": "Topic tags assigned to the repository"
+  }
+}
