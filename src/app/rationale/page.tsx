@@ -337,7 +337,6 @@ export default function RationalePage() {
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t text-sm text-muted-foreground">
           <p>
-            Built as a design initiative for a Senior Product Designer role at dltHub.{" "}
             <Link href="/" className="text-foreground hover:underline underline-offset-2">
               View the explorer
             </Link>

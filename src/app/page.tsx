@@ -126,8 +126,8 @@ export default async function CatalogPage() {
     .reduce((sum, t) => sum + t.row_count, 0);
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="mx-auto max-w-6xl px-6 py-12 w-full flex-1">
         {/* Header */}
         <header className="mb-10">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize">
@@ -218,16 +218,19 @@ export default async function CatalogPage() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="pt-8 border-t text-sm text-muted-foreground">
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t text-sm text-muted-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-6">
           <Link
             href="/rationale"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Design rationale →
+            Design rationale
           </Link>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }
