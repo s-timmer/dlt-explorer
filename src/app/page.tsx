@@ -195,7 +195,7 @@ export default async function CatalogPage() {
             href="/rationale"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Design rationale
+            About this project
           </Link>
         </div>
       </footer>
