@@ -49,15 +49,9 @@ export default function RationalePage() {
           {/* Content */}
           <main className="space-y-20">
             <header>
-              <h1 className="text-2xl font-semibold tracking-tight text-foreground mb-2">
+              <h1 className="text-2xl font-semibold tracking-tight text-foreground">
                 Design rationale
               </h1>
-              <p className="text-muted-foreground max-w-2xl leading-relaxed">
-                The thinking behind the dlt Data Explorer. This documents how the
-                design decisions connect to dltHub&apos;s strategy, their users, and the
-                specific jobs data scientists need to get done. Built as a design
-                initiative for a Senior Product Designer role at dltHub.
-              </p>
             </header>
             {/* 1. The Initiative */}
             <section id="initiative">
