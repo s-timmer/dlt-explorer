@@ -27,18 +27,6 @@ export default function RationalePage() {
           </Link>
         </nav>
 
-        <header className="mb-16">
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground mb-3">
-            Design rationale
-          </h1>
-          <p className="text-muted-foreground max-w-2xl leading-relaxed">
-            The thinking behind the dlt Data Explorer. This documents how the
-            design decisions connect to dltHub&apos;s strategy, their users, and the
-            specific jobs data scientists need to get done. Built as a design
-            initiative for a Senior Product Designer role at dltHub.
-          </p>
-        </header>
-
         <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
           {/* Sidebar navigation */}
           <aside className="hidden lg:block">
@@ -60,6 +48,17 @@ export default function RationalePage() {
 
           {/* Content */}
           <main className="space-y-20">
+            <header>
+              <h1 className="text-3xl font-semibold tracking-tight text-foreground mb-3">
+                Design rationale
+              </h1>
+              <p className="text-muted-foreground max-w-2xl leading-relaxed">
+                The thinking behind the dlt Data Explorer. This documents how the
+                design decisions connect to dltHub&apos;s strategy, their users, and the
+                specific jobs data scientists need to get done. Built as a design
+                initiative for a Senior Product Designer role at dltHub.
+              </p>
+            </header>
             {/* 1. The Initiative */}
             <section id="initiative">
               <h2 className="text-xl font-semibold text-foreground mb-6">
