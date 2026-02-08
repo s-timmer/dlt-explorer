@@ -220,16 +220,12 @@ export default async function CatalogPage() {
 
         {/* Footer */}
         <footer className="pt-8 border-t text-sm text-muted-foreground">
-          <p>
-            Why light mode? Why &ldquo;datasets&rdquo; not &ldquo;tables&rdquo;? Every design
-            choice here is intentional.{" "}
-            <Link
-              href="/rationale"
-              className="text-foreground hover:underline underline-offset-2"
-            >
-              Read the design rationale →
-            </Link>
-          </p>
+          <Link
+            href="/rationale"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Design rationale →
+          </Link>
         </footer>
       </div>
     </div>
