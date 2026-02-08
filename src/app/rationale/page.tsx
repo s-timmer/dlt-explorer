@@ -81,7 +81,7 @@ export default function RationalePage() {
                   first.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   The design tension
                 </h3>
                 <p>
@@ -101,7 +101,7 @@ export default function RationalePage() {
                   website or dashboard.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   The scenario
                 </h3>
                 <p>
@@ -113,7 +113,7 @@ export default function RationalePage() {
                   the visual side of a feedback loop with AI.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   What we&apos;d measure
                 </h3>
                 <p>
@@ -246,7 +246,7 @@ export default function RationalePage() {
                 Design decisions
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Light mode
                 </h3>
                 <p>
@@ -256,7 +256,7 @@ export default function RationalePage() {
                   notebooks, Observable, Google Colab output cells, Notion databases, dbt docs.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Vocabulary
                 </h3>
                 <p>
@@ -266,7 +266,7 @@ export default function RationalePage() {
                   the wrong tool. Small change, large impact on confidence.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Entity grouping
                 </h3>
                 <p>
@@ -276,7 +276,7 @@ export default function RationalePage() {
                   the current flat-sibling layout that reflects how dlt actually works.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Smart field ordering
                 </h3>
                 <p>
@@ -287,7 +287,7 @@ export default function RationalePage() {
                   impact on first impression.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   AI-generated descriptions
                 </h3>
                 <p>
@@ -340,7 +340,7 @@ export default function RationalePage() {
                   </li>
                 </ol>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Tools
                 </h3>
                 <p>
@@ -350,7 +350,7 @@ export default function RationalePage() {
                   were human-driven.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground">
+                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   What&apos;s next
                 </h3>
                 <p>
