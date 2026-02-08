@@ -339,7 +339,7 @@ export default function RationalePage() {
           <p>
             Built as a design initiative for a Senior Product Designer role at dltHub.{" "}
             <Link href="/" className="text-foreground hover:underline underline-offset-2">
-              View the explorer →
+              View the explorer
             </Link>
           </p>
         </footer>
