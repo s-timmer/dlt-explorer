@@ -218,7 +218,19 @@ export default async function CatalogPage() {
           </div>
         </section>
 
-{/* Pipeline metadata removed — freshness is in the header, internal tables are engineer concerns */}
+        {/* Footer */}
+        <footer className="pt-8 border-t text-sm text-muted-foreground">
+          <p>
+            Why light mode? Why &ldquo;datasets&rdquo; not &ldquo;tables&rdquo;? Every design
+            choice here is intentional.{" "}
+            <Link
+              href="/rationale"
+              className="text-foreground hover:underline underline-offset-2"
+            >
+              Read the design rationale →
+            </Link>
+          </p>
+        </footer>
       </div>
     </div>
   );
