@@ -13,8 +13,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "dlt Data Explorer",
-  description: "Visual data explorer for dlt datasets",
+  title: {
+    default: "dlt Data Explorer",
+    template: "%s — dlt Data Explorer",
+  },
+  description: "Data scientist native catalog viewer for dlt datasets. Entity grouping, smart field ordering, AI-generated descriptions.",
 };
 
 export default function RootLayout({

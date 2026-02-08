@@ -71,6 +71,18 @@ function getRelatedTables(
   return { parent, children, siblings };
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ name: string }>;
+}) {
+  const { name } = await params;
+  const displayName = formatTableName(name);
+  return {
+    title: displayName.charAt(0).toUpperCase() + displayName.slice(1),
+  };
+}
+
 async function getTableData(
   name: string
 ): Promise<Record<string, unknown>[]> {
@@ -110,14 +122,14 @@ function friendlyType(dbType: string): string {
 }
 
 const typeColors: Record<string, string> = {
-  text: "bg-blue-50 text-blue-700 border-blue-200",
-  number: "bg-amber-50 text-amber-700 border-amber-200",
-  boolean: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  date: "bg-violet-50 text-violet-700 border-violet-200",
+  text: "text-slate-500 border-border",
+  number: "text-amber-600 border-border",
+  boolean: "text-emerald-600 border-border",
+  date: "text-violet-500 border-border",
 };
 
 function typeBadgeClass(dbType: string): string {
-  return typeColors[friendlyType(dbType)] ?? "bg-gray-50 text-gray-700 border-gray-200";
+  return typeColors[friendlyType(dbType)] ?? "text-muted-foreground border-border";
 }
 
 function formatCellValue(value: unknown): string {
@@ -220,41 +232,38 @@ export default async function TableDetailPage({
 
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize mb-1">
-            {displayName}
-          </h1>
-          {name.includes("__") && (
-            <p className="text-sm font-mono text-muted-foreground mb-1">
-              {name}
-            </p>
-          )}
+          <div className="flex items-baseline justify-between gap-4">
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize" title={name.includes("__") ? name : undefined}>
+              {displayName}
+            </h1>
+            <div className="flex items-baseline gap-3 text-sm text-muted-foreground flex-shrink-0">
+              <span>
+                <span className="text-lg font-semibold text-foreground tabular-nums">
+                  {rowCountLabel(catalog.row_count)}
+                </span>{" "}
+                records
+              </span>
+              <span className="text-muted-foreground/30">·</span>
+              <span>
+                <span className="text-lg font-semibold text-foreground tabular-nums">
+                  {catalog.columns.length}
+                </span>{" "}
+                fields
+              </span>
+            </div>
+          </div>
           {desc?.description && (
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+            <p className="text-sm text-muted-foreground leading-relaxed mt-2">
               {desc.description}
             </p>
           )}
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mt-3">
-            <span>
-              <span className="text-2xl font-semibold text-foreground tabular-nums">
-                {rowCountLabel(catalog.row_count)}
-              </span>{" "}
-              records
-            </span>
-            <Separator orientation="vertical" className="h-5" />
-            <span>
-              <span className="text-2xl font-semibold text-foreground tabular-nums">
-                {catalog.columns.length}
-              </span>{" "}
-              fields
-            </span>
-          </div>
         </header>
 
         {/* Related tables */}
         {(related.parent || related.children.length > 0 || related.siblings.length > 0) && (
-          <div className="mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <p className="mb-8 text-sm text-muted-foreground">
             {related.parent && (
-              <span className="text-muted-foreground">
+              <>
                 Part of{" "}
                 <Link
                   href={`/table/${related.parent.table_name}`}
@@ -262,11 +271,12 @@ export default async function TableDetailPage({
                 >
                   {formatTableName(related.parent.table_name)}
                 </Link>
-              </span>
+              </>
             )}
             {related.children.length > 0 && (
-              <span className="text-muted-foreground">
-                Related datasets:{" "}
+              <>
+                {related.parent && <span className="mx-2 text-muted-foreground/30">·</span>}
+                Contains:{" "}
                 {related.children.map((child, i) => (
                   <span key={child.table_name}>
                     {i > 0 && ", "}
@@ -281,11 +291,11 @@ export default async function TableDetailPage({
                     </span>
                   </span>
                 ))}
-              </span>
+              </>
             )}
             {related.siblings.length > 0 && (
-              <span className="text-muted-foreground">
-                See also:{" "}
+              <>
+                {" "}with{" "}
                 {related.siblings.map((sib, i) => (
                   <span key={sib.table_name}>
                     {i > 0 && ", "}
@@ -297,9 +307,9 @@ export default async function TableDetailPage({
                     </Link>
                   </span>
                 ))}
-              </span>
+              </>
             )}
-          </div>
+          </p>
         )}
 
         {/* Tabs */}
@@ -309,9 +319,9 @@ export default async function TableDetailPage({
             <TabsTrigger value="data">
               Data preview
               {rows.length > 0 && (
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  {rows.length} records
-                </Badge>
+                <span className="ml-1 text-xs text-muted-foreground/50 font-normal" style={{ verticalAlign: '1px' }}>
+                  {rows.length}
+                </span>
               )}
             </TabsTrigger>
           </TabsList>
@@ -324,7 +334,7 @@ export default async function TableDetailPage({
                   <TableRow>
                     <TableHead className="w-12 text-center">#</TableHead>
                     <TableHead>Field name</TableHead>
-                    <TableHead className="w-56">Type</TableHead>
+                    <TableHead className="w-28">Type</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -421,16 +431,9 @@ export default async function TableDetailPage({
                                     {raw}
                                   </span>
                                 ) : col.type === "BOOLEAN" ? (
-                                  <Badge
-                                    variant="outline"
-                                    className={
-                                      row[col.name] === true
-                                        ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                                        : "bg-gray-50 text-gray-500 border-gray-200"
-                                    }
-                                  >
+                                  <span className={row[col.name] === true ? "text-emerald-600" : "text-muted-foreground/50"}>
                                     {raw}
-                                  </Badge>
+                                  </span>
                                 ) : (
                                   display
                                 )}

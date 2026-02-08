@@ -59,6 +59,11 @@ function formatEntityName(name: string): string {
   return name.replace(/_/g, " ");
 }
 
+function formatChildName(tableName: string): string {
+  const parts = tableName.split("__");
+  return parts.slice(1).join(" / ").replace(/_/g, " ");
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
     month: "short",
@@ -149,12 +154,12 @@ export default async function CatalogPage() {
                   <CardContent className="p-0">
                     {/* Entity heading */}
                     <div className="px-6 pt-4 pb-3">
-                      <div className="flex items-center gap-2.5 mb-1">
+                      <Link href={`/table/${parent.table_name}`} className="flex items-center gap-2.5 mb-1 group">
                         <Folder className="h-5 w-5 text-muted-foreground/70 flex-shrink-0" />
-                        <h3 className="text-lg font-semibold text-foreground capitalize">
+                        <h3 className="text-lg font-semibold text-foreground capitalize group-hover:text-primary transition-colors">
                           {formatEntityName(parent.table_name)}
                         </h3>
-                      </div>
+                      </Link>
                       {desc?.description && (
                         <p className="text-sm text-muted-foreground leading-relaxed ml-[30px]">
                           {desc.description}
@@ -168,7 +173,7 @@ export default async function CatalogPage() {
                     </div>
 
                     {/* Table list */}
-                    <div className="border-t pl-[30px]">
+                    <div className="border-t pl-[30px] pt-1 pb-2">
                       {/* Parent table */}
                       <Link href={`/table/${parent.table_name}`}>
                         <div
@@ -193,11 +198,11 @@ export default async function CatalogPage() {
                         >
                           <div
                             className="group flex items-center gap-2.5 pr-6 py-2.5 transition-colors hover:bg-muted/30 cursor-pointer"
-                            title={`${child.row_count.toLocaleString()} records · ${fieldCountLabel(child.columns.length)}`}
+                            title={child.table_name}
                           >
                             <Table2 className="h-4 w-4 text-muted-foreground/40 flex-shrink-0" />
-                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors font-mono">
-                              {child.table_name}
+                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                              {formatChildName(child.table_name)}
                             </span>
                             <span className="ml-auto text-xs text-muted-foreground/60 tabular-nums flex-shrink-0">
                               {rowCountLabel(child.row_count)}
@@ -213,28 +218,7 @@ export default async function CatalogPage() {
           </div>
         </section>
 
-        {/* Pipeline metadata */}
-        <section>
-          <h2 className="text-sm font-medium text-muted-foreground mb-3">
-            Pipeline metadata
-            <span className="font-normal ml-2">{dltTables.length}</span>
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            {dltTables.map((table) => (
-              <Link key={table.table_name} href={`/table/${table.table_name}`}>
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer hover:bg-muted transition-colors font-mono text-xs py-1.5 px-3"
-                >
-                  {table.table_name}
-                  <span className="ml-2 text-muted-foreground tabular-nums">
-                    {table.row_count}
-                  </span>
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        </section>
+{/* Pipeline metadata removed — freshness is in the header, internal tables are engineer concerns */}
       </div>
     </div>
   );
