@@ -1,0 +1,30 @@
+[
+  {
+    "load_id": "1770476967.182336",
+    "schema_name": "github",
+    "status": 0,
+    "inserted_at": "2026-02-07T16:11:26.584854+01:00",
+    "schema_version_hash": "eJiX5pP8xGIomYiAYOjP/wYMWRPmhtbAH3nZHEvi5lA="
+  },
+  {
+    "load_id": "1770482552.7311628",
+    "schema_name": "github",
+    "status": 0,
+    "inserted_at": "2026-02-07T17:44:33.671781+01:00",
+    "schema_version_hash": "eJiX5pP8xGIomYiAYOjP/wYMWRPmhtbAH3nZHEvi5lA="
+  },
+  {
+    "load_id": "1770491327.000504",
+    "schema_name": "github",
+    "status": 0,
+    "inserted_at": "2026-02-07T20:10:45.210596+01:00",
+    "schema_version_hash": "eJiX5pP8xGIomYiAYOjP/wYMWRPmhtbAH3nZHEvi5lA="
+  },
+  {
+    "load_id": "1770499631.40604",
+    "schema_name": "github",
+    "status": 0,
+    "inserted_at": "2026-02-07T22:29:15.420036+01:00",
+    "schema_version_hash": "eJiX5pP8xGIomYiAYOjP/wYMWRPmhtbAH3nZHEvi5lA="
+  }
+]

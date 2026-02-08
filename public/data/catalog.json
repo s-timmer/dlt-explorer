@@ -1,0 +1,3326 @@
+[
+  {
+    "table_name": "_dlt_loads",
+    "columns": [
+      {
+        "name": "load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "schema_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "status",
+        "type": "BIGINT"
+      },
+      {
+        "name": "inserted_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "schema_version_hash",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 4
+  },
+  {
+    "table_name": "_dlt_pipeline_state",
+    "columns": [
+      {
+        "name": "version",
+        "type": "BIGINT"
+      },
+      {
+        "name": "engine_version",
+        "type": "BIGINT"
+      },
+      {
+        "name": "pipeline_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "state",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "version_hash",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1
+  },
+  {
+    "table_name": "_dlt_version",
+    "columns": [
+      {
+        "name": "version",
+        "type": "BIGINT"
+      },
+      {
+        "name": "engine_version",
+        "type": "BIGINT"
+      },
+      {
+        "name": "inserted_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "schema_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "version_hash",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "schema",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1
+  },
+  {
+    "table_name": "issues",
+    "columns": [
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "repository_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "number",
+        "type": "BIGINT"
+      },
+      {
+        "name": "title",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "user__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "state",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "locked",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "comments",
+        "type": "BIGINT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "author_association",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "draft",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "pull_request__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "pull_request__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "pull_request__diff_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "pull_request__patch_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "body",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "reactions__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "reactions__total_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__x1",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions___1",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__laugh",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__hooray",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__confused",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__heart",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__rocket",
+        "type": "BIGINT"
+      },
+      {
+        "name": "reactions__eyes",
+        "type": "BIGINT"
+      },
+      {
+        "name": "timeline_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "assignee__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "closed_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "closed_by__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "closed_by__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_by__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "pull_request__merged_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "sub_issues_summary__total",
+        "type": "BIGINT"
+      },
+      {
+        "name": "sub_issues_summary__completed",
+        "type": "BIGINT"
+      },
+      {
+        "name": "sub_issues_summary__percent_completed",
+        "type": "BIGINT"
+      },
+      {
+        "name": "issue_dependencies_summary__blocked_by",
+        "type": "BIGINT"
+      },
+      {
+        "name": "issue_dependencies_summary__total_blocked_by",
+        "type": "BIGINT"
+      },
+      {
+        "name": "issue_dependencies_summary__blocking",
+        "type": "BIGINT"
+      },
+      {
+        "name": "issue_dependencies_summary__total_blocking",
+        "type": "BIGINT"
+      },
+      {
+        "name": "state_reason",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "type__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type__color",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "type__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "type__is_enabled",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "parent_issue_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__number",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__title",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__creator__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "milestone__open_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__closed_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__state",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "milestone__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "performed_via_github_app__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "performed_via_github_app__client_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__slug",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "performed_via_github_app__owner__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__owner__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "performed_via_github_app__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__external_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "performed_via_github_app__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "performed_via_github_app__permissions__actions",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__checks",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__contents",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__deployments",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__discussions",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__issues",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__metadata",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__pull_requests",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__repository_projects",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__statuses",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "performed_via_github_app__permissions__workflows",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 3576
+  },
+  {
+    "table_name": "issues__assignees",
+    "columns": [
+      {
+        "name": "login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1841
+  },
+  {
+    "table_name": "issues__labels",
+    "columns": [
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "color",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "default",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1664
+  },
+  {
+    "table_name": "issues__performed_via_github_app__events",
+    "columns": [
+      {
+        "name": "value",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 88
+  },
+  {
+    "table_name": "pulls",
+    "columns": [
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "diff_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "patch_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "issue_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "number",
+        "type": "BIGINT"
+      },
+      {
+        "name": "state",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "locked",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "title",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "user__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "body",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "merge_commit_sha",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "draft",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "review_comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "review_comment_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "statuses_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__label",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__ref",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__sha",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__user__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__user__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__full_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__private",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__owner__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__owner__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__owner__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__fork",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__forks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__keys_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__collaborators_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__teams_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__hooks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__issue_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__assignees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__branches_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__blobs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__git_tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__git_refs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__trees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__statuses_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__languages_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__stargazers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__contributors_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__subscribers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__subscription_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__git_commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__issue_comment_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__contents_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__compare_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__merges_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__archive_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__downloads_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__issues_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__pulls_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__milestones_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__notifications_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__releases_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__deployments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "head__repo__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "head__repo__pushed_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "head__repo__git_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__ssh_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__clone_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__svn_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__homepage",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__size",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__stargazers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__watchers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__has_issues",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__has_projects",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__has_downloads",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__has_wiki",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__has_pages",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__has_discussions",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__forks_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__archived",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__disabled",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__open_issues_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__license__key",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__license__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__license__spdx_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__license__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__license__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__allow_forking",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__is_template",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__web_commit_signoff_required",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__visibility",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "head__repo__forks",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__open_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__watchers",
+        "type": "BIGINT"
+      },
+      {
+        "name": "head__repo__default_branch",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__label",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__ref",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__sha",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__user__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__user__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__full_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__private",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__owner__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__owner__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__owner__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__fork",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__forks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__keys_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__collaborators_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__teams_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__hooks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__issue_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__assignees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__branches_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__blobs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__git_tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__git_refs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__trees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__statuses_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__languages_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__stargazers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__contributors_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__subscribers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__subscription_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__git_commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__issue_comment_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__contents_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__compare_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__merges_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__archive_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__downloads_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__issues_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__pulls_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__milestones_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__notifications_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__releases_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__deployments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "base__repo__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "base__repo__pushed_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "base__repo__git_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__ssh_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__clone_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__svn_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__homepage",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__size",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__stargazers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__watchers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__language",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__has_issues",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__has_projects",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__has_downloads",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__has_wiki",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__has_pages",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__has_discussions",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__forks_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__archived",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__disabled",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__open_issues_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__license__key",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__license__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__license__spdx_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__license__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__license__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__allow_forking",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__is_template",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__web_commit_signoff_required",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "base__repo__visibility",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "base__repo__forks",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__open_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__watchers",
+        "type": "BIGINT"
+      },
+      {
+        "name": "base__repo__default_branch",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__self__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__html__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__issue__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__comments__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__review_comments__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__review_comment__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__commits__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_links__statuses__href",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "author_association",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "assignee__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignee__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "head__repo__language",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "closed_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "merged_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "milestone__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__number",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__title",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__creator__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__creator__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "milestone__open_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__closed_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "milestone__state",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestone__created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "milestone__updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      }
+    ],
+    "row_count": 2313
+  },
+  {
+    "table_name": "pulls__assignees",
+    "columns": [
+      {
+        "name": "login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1044
+  },
+  {
+    "table_name": "pulls__base__repo__topics",
+    "columns": [
+      {
+        "name": "value",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 23130
+  },
+  {
+    "table_name": "pulls__head__repo__topics",
+    "columns": [
+      {
+        "name": "value",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 20350
+  },
+  {
+    "table_name": "pulls__labels",
+    "columns": [
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "color",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "default",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 655
+  },
+  {
+    "table_name": "pulls__requested_reviewers",
+    "columns": [
+      {
+        "name": "login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "_dlt_root_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 559
+  },
+  {
+    "table_name": "repo",
+    "columns": [
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "full_name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "private",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "owner__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "owner__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "owner__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "description",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "fork",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "forks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "keys_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "collaborators_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "teams_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "hooks_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "issue_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "assignees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "branches_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "blobs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "git_tags_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "git_refs_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "trees_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "statuses_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "languages_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "stargazers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "contributors_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscribers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscription_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "git_commits_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "comments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "issue_comment_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "contents_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "compare_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "merges_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "archive_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "downloads_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "issues_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "pulls_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "milestones_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "notifications_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "labels_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "releases_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "deployments_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "pushed_at",
+        "type": "TIMESTAMP WITH TIME ZONE"
+      },
+      {
+        "name": "git_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "ssh_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "clone_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "svn_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "homepage",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "size",
+        "type": "BIGINT"
+      },
+      {
+        "name": "stargazers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "watchers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "language",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "has_issues",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_projects",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_downloads",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_wiki",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_pages",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_discussions",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "forks_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "archived",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "disabled",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "open_issues_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "license__key",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "license__name",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "license__spdx_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "license__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "license__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "allow_forking",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "is_template",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "web_commit_signoff_required",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "visibility",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "forks",
+        "type": "BIGINT"
+      },
+      {
+        "name": "open_issues",
+        "type": "BIGINT"
+      },
+      {
+        "name": "watchers",
+        "type": "BIGINT"
+      },
+      {
+        "name": "default_branch",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "permissions__admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "permissions__maintain",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "permissions__push",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "permissions__triage",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "permissions__pull",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "temp_clone_token",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "organization__node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organization__site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "network_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "subscribers_count",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 1
+  },
+  {
+    "table_name": "repo__topics",
+    "columns": [
+      {
+        "name": "value",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_parent_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_list_idx",
+        "type": "BIGINT"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 10
+  },
+  {
+    "table_name": "stargazers",
+    "columns": [
+      {
+        "name": "login",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "id",
+        "type": "BIGINT"
+      },
+      {
+        "name": "node_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "avatar_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gravatar_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "html_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "followers_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "following_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "gists_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "starred_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "subscriptions_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "organizations_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "repos_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "received_events_url",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "user_view_type",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "site_admin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "_dlt_load_id",
+        "type": "VARCHAR"
+      },
+      {
+        "name": "_dlt_id",
+        "type": "VARCHAR"
+      }
+    ],
+    "row_count": 4886
+  }
+]

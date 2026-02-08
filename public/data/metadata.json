@@ -1,0 +1,12 @@
+{
+  "pipeline_name": "github_dlt_hub",
+  "source_name": "github",
+  "destination": "duckdb",
+  "dataset_name": "github_data",
+  "last_loaded": "2026-02-07T22:29:15.420036+01:00",
+  "load_id": "1770499631.40604",
+  "load_status": 0,
+  "schema_version": 2,
+  "engine_version": 11,
+  "pipeline_version": 1
+}

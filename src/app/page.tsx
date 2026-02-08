@@ -1,65 +1,221 @@
-import Image from "next/image";
+import fs from "fs/promises";
+import path from "path";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Folder, Table2 } from "lucide-react";
+import { RefreshButton } from "@/components/refresh-button";
+import type { CatalogTable, Metadata } from "@/lib/types";
 
-export default function Home() {
+async function getCatalog(): Promise<CatalogTable[]> {
+  const filePath = path.join(process.cwd(), "public/data/catalog.json");
+  const data = await fs.readFile(filePath, "utf-8");
+  return JSON.parse(data);
+}
+
+async function getMetadata(): Promise<Metadata> {
+  const filePath = path.join(process.cwd(), "public/data/metadata.json");
+  const data = await fs.readFile(filePath, "utf-8");
+  return JSON.parse(data);
+}
+
+interface EntityGroup {
+  parent: CatalogTable;
+  children: CatalogTable[];
+}
+
+function groupByEntity(tables: CatalogTable[]): EntityGroup[] {
+  const mainTables = tables.filter(
+    (t) => !t.table_name.startsWith("_dlt_") && !t.table_name.includes("__")
+  );
+  const childTables = tables.filter(
+    (t) => !t.table_name.startsWith("_dlt_") && t.table_name.includes("__")
+  );
+
+  return mainTables.map((parent) => ({
+    parent,
+    children: childTables
+      .filter((c) => c.table_name.startsWith(parent.table_name + "__"))
+      .sort((a, b) => b.row_count - a.row_count),
+  }));
+}
+
+function formatEntityName(name: string): string {
+  return name.replace(/_/g, " ");
+}
+
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
+function relativeTime(iso: string): string {
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60_000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  const days = Math.floor(hrs / 24);
+  return `${days}d ago`;
+}
+
+function rowCountLabel(count: number): string {
+  if (count >= 1000) {
+    return `${(count / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  }
+  return count.toLocaleString();
+}
+
+function fieldCountLabel(count: number): string {
+  return `${count} ${count === 1 ? "field" : "fields"}`;
+}
+
+function isPreviewField(name: string): boolean {
+  if (name.startsWith("_dlt_")) return false;
+  if (name.endsWith("_url") || name === "url") return false;
+  const leaf = name.includes("__") ? name.split("__").pop()! : name;
+  const noise = ["id", "node_id", "gravatar_id", "user_view_type", "type", "site_admin"];
+  if (noise.includes(leaf)) return false;
+  return true;
+}
+
+function getPreviewColumns(table: CatalogTable, max: number = 6): string[] {
+  return table.columns
+    .map((c) => c.name)
+    .filter(isPreviewField)
+    .slice(0, max);
+}
+
+export default async function CatalogPage() {
+  const [catalog, metadata] = await Promise.all([getCatalog(), getMetadata()]);
+
+  const entities = groupByEntity(catalog);
+  const dltTables = catalog.filter((t) => t.table_name.startsWith("_dlt_"));
+  const totalRows = catalog
+    .filter((t) => !t.table_name.startsWith("_dlt_"))
+    .reduce((sum, t) => sum + t.row_count, 0);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-background">
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        {/* Header */}
+        <header className="mb-10">
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize">
+            {metadata.dataset_name.replace(/_/g, " ")}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <div className="flex items-baseline justify-between gap-4 mt-2">
+            <p className="text-sm text-muted-foreground">
+              dlt-hub/dlt · {entities.length} datasets · {rowCountLabel(totalRows)} records
+            </p>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground flex-shrink-0">
+              <span title={formatDate(metadata.last_loaded)}>Updated {relativeTime(metadata.last_loaded)}</span>
+              <RefreshButton />
+            </div>
+          </div>
+        </header>
+
+        {/* Datasets */}
+        <section className="mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {entities.map(({ parent, children }) => {
+              const previewCols = getPreviewColumns(parent);
+              return (
+                <Card key={parent.table_name} className="overflow-hidden py-0 gap-0">
+                  <CardContent className="p-0">
+                    {/* Entity heading */}
+                    <div className="px-6 pt-4 pb-3">
+                      <div className="flex items-center gap-2.5 mb-1">
+                        <Folder className="h-5 w-5 text-muted-foreground/70 flex-shrink-0" />
+                        <h3 className="text-lg font-semibold text-foreground capitalize">
+                          {formatEntityName(parent.table_name)}
+                        </h3>
+                      </div>
+                      <p className="text-xs font-mono text-muted-foreground leading-relaxed ml-[30px]">
+                        {previewCols.join(", ")}
+                        {parent.columns.length > previewCols.length && (
+                          <span className="text-muted-foreground/50">
+                            {" "}
+                            +{parent.columns.length - previewCols.length} more
+                          </span>
+                        )}
+                      </p>
+                    </div>
+
+                    {/* Table list */}
+                    <div className="border-t pl-[30px]">
+                      {/* Parent table */}
+                      <Link href={`/table/${parent.table_name}`}>
+                        <div
+                          className="group flex items-center gap-2.5 pr-6 py-2.5 transition-colors hover:bg-muted/30 cursor-pointer"
+                          title={`${parent.row_count.toLocaleString()} records · ${fieldCountLabel(parent.columns.length)}`}
+                        >
+                          <Table2 className="h-4 w-4 text-muted-foreground/60 flex-shrink-0" />
+                          <span className="text-sm font-medium text-foreground group-hover:text-primary font-mono">
+                            {parent.table_name}
+                          </span>
+                          <span className="ml-auto text-xs text-muted-foreground tabular-nums flex-shrink-0">
+                            {rowCountLabel(parent.row_count)}
+                          </span>
+                        </div>
+                      </Link>
+
+                      {/* Child tables — same indent, lighter weight */}
+                      {children.map((child) => (
+                        <Link
+                          key={child.table_name}
+                          href={`/table/${child.table_name}`}
+                        >
+                          <div
+                            className="group flex items-center gap-2.5 pr-6 py-2.5 transition-colors hover:bg-muted/30 cursor-pointer"
+                            title={`${child.row_count.toLocaleString()} records · ${fieldCountLabel(child.columns.length)}`}
+                          >
+                            <Table2 className="h-4 w-4 text-muted-foreground/40 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors font-mono">
+                              {child.table_name}
+                            </span>
+                            <span className="ml-auto text-xs text-muted-foreground/60 tabular-nums flex-shrink-0">
+                              {rowCountLabel(child.row_count)}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Pipeline metadata */}
+        <section>
+          <h2 className="text-sm font-medium text-muted-foreground mb-3">
+            Pipeline metadata
+            <span className="font-normal ml-2">{dltTables.length}</span>
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {dltTables.map((table) => (
+              <Link key={table.table_name} href={`/table/${table.table_name}`}>
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer hover:bg-muted transition-colors font-mono text-xs py-1.5 px-3"
+                >
+                  {table.table_name}
+                  <span className="ml-2 text-muted-foreground tabular-nums">
+                    {table.row_count}
+                  </span>
+                </Badge>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

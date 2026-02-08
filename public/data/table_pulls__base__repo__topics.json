@@ -1,0 +1,352 @@
+[
+  {
+    "value": "data",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "fUqfDDcABReBLA"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "O5qCVu9cw7jogg"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "3Op3I8iirPp6xA"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "pDiZ58+pSR1pAw"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "uxwtC6ckQEfbYQ"
+  },
+  {
+    "value": "elt",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "P4Ew0v/lPSeo4A"
+  },
+  {
+    "value": "extract",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "F9Tus0G7GYzVkQ"
+  },
+  {
+    "value": "load",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "sXXGLPUMISZQXA"
+  },
+  {
+    "value": "python",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "TfXfwl7PZQyMxg"
+  },
+  {
+    "value": "transform",
+    "_dlt_root_id": "Solnps7s091ZQg",
+    "_dlt_parent_id": "Solnps7s091ZQg",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "OweeH0eNRkWIJg"
+  },
+  {
+    "value": "data",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "5PrrEr+PlHpJIA"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "+dIa2DJm3xlt+g"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "9h/4QgKGw5qFJg"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "KbMdtuiwgTFlPA"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "+6k/QlAKFT2Cqw"
+  },
+  {
+    "value": "elt",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "/8WqTqa4msYSqw"
+  },
+  {
+    "value": "extract",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "OEX3QfANzp0jAg"
+  },
+  {
+    "value": "load",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "cAvv/4Oy4Qmdvw"
+  },
+  {
+    "value": "python",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "z86KLWhKiZEKrw"
+  },
+  {
+    "value": "transform",
+    "_dlt_root_id": "noahrOq79V5K4w",
+    "_dlt_parent_id": "noahrOq79V5K4w",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "sCZK0d6ok/z+tg"
+  },
+  {
+    "value": "data",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "wdGepSwr7te+eQ"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "f1jNOC3qLK3RpA"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "S16w7MFpw7yLXA"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "kgG83UXJwS9avA"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "n2DU8extSHn45A"
+  },
+  {
+    "value": "elt",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "2ZD4bTRJ73zKYw"
+  },
+  {
+    "value": "extract",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "lOtpd9RJqpEXZA"
+  },
+  {
+    "value": "load",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "mT7NKnCO3/ElTg"
+  },
+  {
+    "value": "python",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "4K8FiFQg7aayng"
+  },
+  {
+    "value": "transform",
+    "_dlt_root_id": "VV/K/n+kf6zLXw",
+    "_dlt_parent_id": "VV/K/n+kf6zLXw",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "vW2tZzU2uXZG6w"
+  },
+  {
+    "value": "data",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "9DDW0HfpplnHaA"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "ni+LPYzcud1hbA"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "3Nr0bZORuJOF2A"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "yrn7kS8LoO/FyQ"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "d6LaIf5INk8g+Q"
+  },
+  {
+    "value": "elt",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "X+UrkYyvY1OSeQ"
+  },
+  {
+    "value": "extract",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "x3nL26vamTyDhw"
+  },
+  {
+    "value": "load",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "kSpcKULvdVzURg"
+  },
+  {
+    "value": "python",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "PFlt2Oc5hiDYLg"
+  },
+  {
+    "value": "transform",
+    "_dlt_root_id": "MvZNIIgXjeEEqg",
+    "_dlt_parent_id": "MvZNIIgXjeEEqg",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "KByHImw4eq/Muw"
+  },
+  {
+    "value": "data",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "u0zbX+ortdi+6g"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "y8Pw26Af8+a5Yg"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "FKiBwHNKjVxSBQ"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "1849RBE3eapTBg"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "Ys/WMQnrnkzOYg"
+  },
+  {
+    "value": "elt",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "O3Un7ejIvdb+4w"
+  },
+  {
+    "value": "extract",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "oYz7RO8t9SiCzA"
+  },
+  {
+    "value": "load",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "Vy5Ss9fZI7IvQQ"
+  },
+  {
+    "value": "python",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "n89UnzcVM1il7g"
+  },
+  {
+    "value": "transform",
+    "_dlt_root_id": "y6Uh5FW756Ya/g",
+    "_dlt_parent_id": "y6Uh5FW756Ya/g",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "WdYl0MhLZvKhPg"
+  }
+]

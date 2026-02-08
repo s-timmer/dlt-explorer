@@ -1,0 +1,62 @@
+[
+  {
+    "value": "data",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 0,
+    "_dlt_id": "GEbixbmrZ7q0Jg"
+  },
+  {
+    "value": "data-engineering",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 1,
+    "_dlt_id": "1eBdnLl1DxufHQ"
+  },
+  {
+    "value": "data-lake",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 2,
+    "_dlt_id": "d2qOGIcitvRwxw"
+  },
+  {
+    "value": "data-loading",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 3,
+    "_dlt_id": "pCudO9+71a4zYA"
+  },
+  {
+    "value": "data-warehouse",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 4,
+    "_dlt_id": "SUxb71D6MpawNg"
+  },
+  {
+    "value": "elt",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 5,
+    "_dlt_id": "6vSKdmP5+Gx+tg"
+  },
+  {
+    "value": "extract",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 6,
+    "_dlt_id": "pTROJ4mhOfr7AA"
+  },
+  {
+    "value": "load",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 7,
+    "_dlt_id": "ymd0KwZi7gGWiQ"
+  },
+  {
+    "value": "python",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 8,
+    "_dlt_id": "WKY7X6L0fq+1Mw"
+  },
+  {
+    "value": "transform",
+    "_dlt_parent_id": "Li6ipcd6ra4zWQ",
+    "_dlt_list_idx": 9,
+    "_dlt_id": "bdUM7J9ayP+LQQ"
+  }
+]
