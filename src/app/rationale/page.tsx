@@ -48,7 +48,7 @@ export default function RationalePage() {
 
           {/* Content */}
           <main className="space-y-20">
-            <header className="mb-[-2rem]">
+            <header>
               <h1 className="text-2xl font-semibold tracking-tight text-foreground mb-2">
                 Design rationale
               </h1>
@@ -61,7 +61,7 @@ export default function RationalePage() {
             </header>
             {/* 1. The Initiative */}
             <section id="initiative">
-              <h2 className="text-xl font-semibold text-foreground mb-6">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
                 The initiative
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
@@ -127,7 +127,7 @@ export default function RationalePage() {
 
             {/* 2. Personas */}
             <section id="personas">
-              <h2 className="text-xl font-semibold text-foreground mb-6">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
                 Personas
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
@@ -183,7 +183,7 @@ export default function RationalePage() {
 
             {/* 3. Jobs to be done */}
             <section id="jobs">
-              <h2 className="text-xl font-semibold text-foreground mb-6">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
                 Jobs to be done
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
@@ -242,7 +242,7 @@ export default function RationalePage() {
 
             {/* 4. Design decisions */}
             <section id="decisions">
-              <h2 className="text-xl font-semibold text-foreground mb-6">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
                 Design decisions
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
@@ -301,7 +301,7 @@ export default function RationalePage() {
 
             {/* 5. Process */}
             <section id="process">
-              <h2 className="text-xl font-semibold text-foreground mb-6">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
                 Process
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
