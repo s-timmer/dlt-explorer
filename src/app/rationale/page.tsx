@@ -49,16 +49,16 @@ export default function RationalePage() {
           {/* Content */}
           <main className="space-y-20">
             <header>
-              <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+              <h1 className="text-3xl font-semibold tracking-tight text-foreground">
                 Design rationale
               </h1>
             </header>
             {/* 1. The Initiative */}
             <section id="initiative">
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
                 The initiative
               </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
                   dltHub is a pip-installable data platform. The open-source library handles
                   data loading, with 3M+ downloads/month across 5,000+ companies. The commercial
@@ -87,7 +87,7 @@ export default function RationalePage() {
                   the same way.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   The scenario I had in mind
                 </h3>
                 <p>
@@ -107,39 +107,39 @@ export default function RationalePage() {
 
             {/* 2. Personas */}
             <section id="personas">
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
                 Personas
               </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
                   From the research, I see four personas that use dlt. The catalog is where they overlap.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
                   <div className="rounded-lg border bg-card p-4">
-                    <p className="font-medium text-foreground text-sm mb-1">Data engineer</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="font-medium text-foreground text-base mb-1">Data engineer</p>
+                    <p className="text-sm text-muted-foreground">
                       1-3 per company. Builds pipelines, publishes to catalog.
                       CLI-native, Python-fluent. The builder.
                     </p>
                   </div>
                   <div className="rounded-lg border bg-card p-4">
-                    <p className="font-medium text-foreground text-sm mb-1">Data scientist</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="font-medium text-foreground text-base mb-1">Data scientist</p>
+                    <p className="text-sm text-muted-foreground">
                       5-10x more numerous. Discovers through catalog.
                       Notebook-native, visual. The expansion audience.
                     </p>
                   </div>
                   <div className="rounded-lg border bg-card p-4">
-                    <p className="font-medium text-foreground text-sm mb-1">Infra / security</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="font-medium text-foreground text-base mb-1">Infra / security</p>
+                    <p className="text-sm text-muted-foreground">
                       The gatekeeper. Audits through catalog. Rare interaction,
                       high stakes. Needs trust and transparency.
                     </p>
                   </div>
                   <div className="rounded-lg border bg-card p-4">
-                    <p className="font-medium text-foreground text-sm mb-1">AI agents & vibe coders</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="font-medium text-foreground text-base mb-1">AI agents & vibe coders</p>
+                    <p className="text-sm text-muted-foreground">
                       Non-traditional users. LLMs generating pipelines, developers
                       using AI to build things they couldn&apos;t write themselves.
                     </p>
@@ -161,10 +161,10 @@ export default function RationalePage() {
 
             {/* 3. Jobs to be done */}
             <section id="jobs">
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
                 Jobs to be done
               </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
                   I picked five common jobs for a data scientist working with loaded data
                   and tried to tie every UI element back to one of them:
@@ -199,11 +199,11 @@ export default function RationalePage() {
                     },
                   ].map((item) => (
                     <div key={item.job} className="rounded-lg border bg-card p-4">
-                      <p className="font-medium text-foreground text-sm mb-1">
+                      <p className="font-medium text-foreground text-base mb-1">
                         &ldquo;{item.job}&rdquo;
                       </p>
-                      <p className="text-xs text-muted-foreground mb-2">{item.ui}</p>
-                      <p className="text-xs text-muted-foreground/60">
+                      <p className="text-sm text-muted-foreground mb-2">{item.ui}</p>
+                      <p className="text-sm text-muted-foreground/60">
                         <span className="font-medium">Verify:</span> {item.verify}
                       </p>
                     </div>
@@ -219,11 +219,11 @@ export default function RationalePage() {
 
             {/* 4. Design decisions */}
             <section id="decisions">
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
                 Design decisions
               </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   Light mode
                 </h3>
                 <p>
@@ -232,7 +232,7 @@ export default function RationalePage() {
                   environment felt more useful than defaulting to dark mode.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   Vocabulary
                 </h3>
                 <p>
@@ -241,7 +241,7 @@ export default function RationalePage() {
                   opened the wrong tool.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   Entity grouping
                 </h3>
                 <p>
@@ -250,7 +250,7 @@ export default function RationalePage() {
                   Went through a few versions before landing on the current flat-sibling layout.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   Smart field ordering
                 </h3>
                 <p>
@@ -260,7 +260,7 @@ export default function RationalePage() {
                   title, state) at score 0, URLs at 7, infrastructure IDs at 8.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   AI-generated descriptions
                 </h3>
                 <p>
@@ -273,10 +273,10 @@ export default function RationalePage() {
 
             {/* 5. Process */}
             <section id="process">
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
                 Process
               </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
                   How I approached it:
                 </p>
@@ -312,7 +312,7 @@ export default function RationalePage() {
                   </li>
                 </ol>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   Tools
                 </h3>
                 <p>
@@ -321,7 +321,7 @@ export default function RationalePage() {
                   compress what might have been a week of research into a weekend.
                 </p>
 
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
                   What&apos;s next
                 </h3>
                 <p>
