@@ -2,10 +2,10 @@ import fs from "fs/promises";
 import path from "path";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Folder, Table2 } from "lucide-react";
 import { RefreshButton } from "@/components/refresh-button";
 import type { CatalogTable, Metadata } from "@/lib/types";
+import { getDescriptions } from "@/lib/field-config";
 
 async function getCatalog(): Promise<CatalogTable[]> {
   const filePath = path.join(process.cwd(), "public/data/catalog.json");
@@ -17,21 +17,6 @@ async function getMetadata(): Promise<Metadata> {
   const filePath = path.join(process.cwd(), "public/data/metadata.json");
   const data = await fs.readFile(filePath, "utf-8");
   return JSON.parse(data);
-}
-
-interface DatasetDescription {
-  description: string;
-  summary?: string;
-}
-
-async function getDescriptions(): Promise<Record<string, DatasetDescription>> {
-  const filePath = path.join(process.cwd(), "public/data/descriptions.json");
-  try {
-    const data = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return {};
-  }
 }
 
 interface EntityGroup {
@@ -96,22 +81,6 @@ function fieldCountLabel(count: number): string {
   return `${count} ${count === 1 ? "field" : "fields"}`;
 }
 
-function isPreviewField(name: string): boolean {
-  if (name.startsWith("_dlt_")) return false;
-  if (name.endsWith("_url") || name === "url") return false;
-  const leaf = name.includes("__") ? name.split("__").pop()! : name;
-  const noise = ["id", "node_id", "gravatar_id", "user_view_type", "type", "site_admin"];
-  if (noise.includes(leaf)) return false;
-  return true;
-}
-
-function getPreviewColumns(table: CatalogTable, max: number = 6): string[] {
-  return table.columns
-    .map((c) => c.name)
-    .filter(isPreviewField)
-    .slice(0, max);
-}
-
 export default async function CatalogPage() {
   const [catalog, metadata, descriptions] = await Promise.all([
     getCatalog(),
@@ -120,7 +89,6 @@ export default async function CatalogPage() {
   ]);
 
   const entities = groupByEntity(catalog);
-  const dltTables = catalog.filter((t) => t.table_name.startsWith("_dlt_"));
   const totalRows = catalog
     .filter((t) => !t.table_name.startsWith("_dlt_"))
     .reduce((sum, t) => sum + t.row_count, 0);
@@ -135,7 +103,7 @@ export default async function CatalogPage() {
           </h1>
           <div className="flex items-baseline justify-between gap-4 mt-2">
             <p className="text-sm text-muted-foreground">
-              dlt-hub/dlt · {entities.length} datasets · {rowCountLabel(totalRows)} records
+              {metadata.source_label ?? metadata.pipeline_name} · {entities.length} datasets · {rowCountLabel(totalRows)} records
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground flex-shrink-0">
               <span title={formatDate(metadata.last_loaded)}>Updated {relativeTime(metadata.last_loaded)}</span>

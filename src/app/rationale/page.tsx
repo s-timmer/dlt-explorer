@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const sections = [
-  { id: "initiative", label: "The initiative" },
+  { id: "context", label: "Context" },
   { id: "personas", label: "Personas" },
   { id: "jobs", label: "Jobs to be done" },
   { id: "decisions", label: "Design decisions" },
@@ -53,10 +53,10 @@ export default function RationalePage() {
                 Design rationale
               </h1>
             </header>
-            {/* 1. The Initiative */}
-            <section id="initiative">
+            {/* 1. Context */}
+            <section id="context">
               <h2 className="text-2xl font-semibold text-foreground mb-3">
-                The initiative
+                Context
               </h2>
               <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
@@ -309,6 +309,14 @@ export default function RationalePage() {
                     <span className="font-medium text-foreground">Polish.</span> Vocabulary pass,
                     field ordering, AI descriptions, relationship labels, type badges, each
                     traced back to a user job.
+                  </li>
+                  <li>
+                    <span className="font-medium text-foreground">Generalize.</span> Separated
+                    all dataset-specific logic (descriptions, field ordering, noise filters) into
+                    config files. Wrote an LLM-readable customization guide so anyone can point
+                    the explorer at their own dlt pipeline. Published on{" "}
+                    <a href="https://github.com/s-timmer/dlt-explorer" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline underline-offset-2">GitHub</a>{" "}
+                    as a reusable tool.
                   </li>
                 </ol>
 

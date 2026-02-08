@@ -10,7 +10,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
@@ -21,21 +20,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { CatalogTable } from "@/lib/types";
-
-interface DatasetDescription {
-  description: string;
-  summary?: string;
-}
-
-async function getDescriptions(): Promise<Record<string, DatasetDescription>> {
-  const filePath = path.join(process.cwd(), "public/data/descriptions.json");
-  try {
-    const data = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return {};
-  }
-}
+import { getFieldConfig, fieldSortScore as fieldSortScoreFn, getDescriptions } from "@/lib/field-config";
 
 async function getFullCatalog(): Promise<CatalogTable[]> {
   const filePath = path.join(process.cwd(), "public/data/catalog.json");
@@ -144,27 +129,6 @@ function formatRelatedName(tableName: string): string {
   return parts.slice(1).join(" / ").replace(/_/g, " ");
 }
 
-function fieldSortScore(name: string): number {
-  // Identity fields first
-  const leaf = name.includes("__") ? name.split("__").pop()! : name;
-  if (["number", "title", "name", "login", "state", "status"].includes(leaf))
-    return 0;
-  // Key content
-  if (["body", "description", "message", "created_at", "updated_at", "closed_at", "merged_at"].includes(leaf))
-    return 1;
-  // ID/infrastructure fields — deprioritized
-  if (leaf === "id" || leaf === "node_id" || leaf === "gravatar_id" || leaf === "user_view_type")
-    return 8;
-  // URL fields — deprioritized
-  if (name.endsWith("_url") || name === "url" || name.endsWith("__url"))
-    return 7;
-  // Nested user-readable fields (e.g. user__login but not user__id)
-  if (name.includes("__"))
-    return 4;
-  // Everything else — general fields
-  return 3;
-}
-
 function truncate(str: string, max: number): string {
   if (str.length <= max) return str;
   return str.slice(0, max) + "…";
@@ -176,10 +140,11 @@ export default async function TableDetailPage({
   params: Promise<{ name: string }>;
 }) {
   const { name } = await params;
-  const [fullCatalog, rows, descriptions] = await Promise.all([
+  const [fullCatalog, rows, descriptions, fieldConfig] = await Promise.all([
     getFullCatalog(),
     getTableData(name),
     getDescriptions(),
+    getFieldConfig(),
   ]);
 
   const catalog = fullCatalog.find((t) => t.table_name === name) ?? null;
@@ -207,7 +172,7 @@ export default async function TableDetailPage({
   const desc = descriptions[name];
   const visibleColumns = catalog.columns
     .filter((col) => !col.name.startsWith("_dlt_"))
-    .sort((a, b) => fieldSortScore(a.name) - fieldSortScore(b.name));
+    .sort((a, b) => fieldSortScoreFn(a.name, fieldConfig) - fieldSortScoreFn(b.name, fieldConfig));
   const dltColumns = catalog.columns.filter((col) =>
     col.name.startsWith("_dlt_")
   );

@@ -1,0 +1,15 @@
+{
+  "noise_fields": [
+    "id",
+    "node_id",
+    "gravatar_id",
+    "user_view_type",
+    "type",
+    "site_admin"
+  ],
+  "field_priorities": {
+    "identity": ["number", "title", "name", "login", "state", "status"],
+    "content": ["body", "description", "message", "created_at", "updated_at", "closed_at", "merged_at"],
+    "deprioritized_ids": ["id", "node_id", "gravatar_id", "user_view_type"]
+  }
+}

@@ -20,4 +20,5 @@ export interface Metadata {
   schema_version: number;
   engine_version: number;
   pipeline_version: number;
+  source_label?: string;
 }
