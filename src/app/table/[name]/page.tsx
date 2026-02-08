@@ -279,7 +279,7 @@ export default async function TableDetailPage({
 
         {/* Tabs */}
         <Tabs defaultValue="schema" className="w-full">
-          <TabsList className="mb-6">
+          <TabsList className="mb-2">
             <TabsTrigger value="schema">Schema</TabsTrigger>
             <TabsTrigger value="data">
               Data preview

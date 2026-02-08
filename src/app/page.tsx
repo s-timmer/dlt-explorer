@@ -141,11 +141,11 @@ export default async function CatalogPage() {
                     </div>
 
                     {/* Table list */}
-                    <div className="border-t pl-[30px] pt-1 pb-2">
+                    <div className="border-t pl-[30px] pt-1 pb-3">
                       {/* Parent table */}
                       <Link href={`/table/${parent.table_name}`}>
                         <div
-                          className="group flex items-center gap-2.5 pr-6 py-2.5 transition-colors hover:bg-muted/30 cursor-pointer"
+                          className="group flex items-center gap-2.5 pr-6 py-2 transition-colors hover:bg-muted/30 cursor-pointer"
                           title={`${parent.row_count.toLocaleString()} records · ${fieldCountLabel(parent.columns.length)}`}
                         >
                           <Table2 className="h-4 w-4 text-muted-foreground/60 flex-shrink-0" />
@@ -165,7 +165,7 @@ export default async function CatalogPage() {
                           href={`/table/${child.table_name}`}
                         >
                           <div
-                            className="group flex items-center gap-2.5 pr-6 py-2.5 transition-colors hover:bg-muted/30 cursor-pointer"
+                            className="group flex items-center gap-2.5 pr-6 py-2 transition-colors hover:bg-muted/30 cursor-pointer"
                             title={child.table_name}
                           >
                             <Table2 className="h-4 w-4 text-muted-foreground/40 flex-shrink-0" />
