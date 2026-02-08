@@ -70,51 +70,37 @@ export default function RationalePage() {
                   Their strategy: make data infrastructure invisible by making it code. Code that
                   AI can read. Code that data scientists can pip install. But the more invisible
                   the infrastructure becomes, the more you need designed surfaces to make it
-                  legible. When discovering data, when something breaks, when you need to verify
-                  that data is fresh. The data catalog is the highest-impact surface to design
-                  first.
-                </p>
-
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
-                  The design tension
-                </h3>
-                <p>
-                  dltHub is code-first by strategy, not by accident. 300+ competitors built GUIs.
-                  Those GUIs can&apos;t be pip-installed, can&apos;t be read by LLMs, can&apos;t
-                  be composed through Python dependencies. The question: how do you build
-                  visual surfaces for a code-first platform?
+                  legible. The data catalog felt like the right surface to start with.
                 </p>
                 <p>
-                  Look at how Python handles this. When you run{" "}
+                  The interesting thing is that dltHub is code-first by strategy. 300+ competitors
+                  built GUIs. Those GUIs can&apos;t be pip-installed, can&apos;t be read by LLMs,
+                  can&apos;t be composed through Python dependencies. So where does design fit?
+                </p>
+                <p>
+                  Probably the same way it works in Python already. When you run{" "}
                   <code className="font-mono text-foreground/80 bg-muted px-1.5 py-0.5 rounded text-xs">
                     df.head()
                   </code>{" "}
                   in a notebook, you get a rendered HTML table. The visual layer isn&apos;t
-                  a separate app, it&apos;s what the code produces. This catalog works the same
-                  way: rendered output with considered design choices. A data viewer, not a
-                  website or dashboard.
+                  a separate app, it&apos;s what the code produces. This catalog tries to work
+                  the same way.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
-                  The scenario
+                  The scenario I had in mind
                 </h3>
                 <p>
                   A data scientist wants to understand the dlt-hub GitHub repository. They prompt
                   an LLM: &ldquo;Pull the GitHub data.&rdquo; The LLM generates a dlt pipeline,
                   runs it, loads data into DuckDB. The catalog renders four entity cards with
-                  AI-generated descriptions. The scientist scans, clicks in, evaluates. At no
-                  point do they open a separate app, learn SQL, or file a ticket. The catalog is
-                  the visual side of a feedback loop with AI.
+                  AI-generated descriptions. They scan, click in, evaluate. No separate app,
+                  no SQL, no ticket.
                 </p>
-
-                <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
-                  What we&apos;d measure
-                </h3>
                 <p>
-                  Time to first insight (target: under 30 seconds). Self-serve rate, meaning data
-                  questions answered without filing a ticket. Catalog return rate, beating
-                  the &lt;20% adoption baseline of standalone catalogs. Entity comprehension: can
-                  users correctly identify which datasets belong together?
+                  Things I&apos;d want to test: how quickly someone gets to their first insight,
+                  whether they can answer data questions without filing a ticket, and whether
+                  they come back to the catalog (standalone catalogs typically see &lt;20% adoption).
                 </p>
               </div>
             </section>
@@ -126,7 +112,7 @@ export default function RationalePage() {
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
-                  dltHub serves four distinct personas. The catalog is where they converge.
+                  From the research, I see four personas that use dlt. The catalog is where they overlap.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2">
@@ -161,16 +147,14 @@ export default function RationalePage() {
                 </div>
 
                 <p>
-                  The design target for this project is the data scientist, who the CTO describes
-                  as &ldquo;a working student who only knows Python, no SQL.&rdquo; They
-                  represent the biggest growth vector (more users per company means more
-                  platform usage) and currently have no designed experience at all.
+                  I focused on the data scientist, who the CTO describes as &ldquo;a working
+                  student who only knows Python, no SQL.&rdquo; There are 5-10x more of them per
+                  company than data engineers, and right now they have no designed experience at all.
                 </p>
                 <p>
-                  A key insight from the research: the handoff IS the product. The data engineer
-                  publishes. The data scientist discovers. The security person audits. The value
-                  comes from how well they hand off to each other, and the catalog is the surface
-                  where that happens.
+                  What I found interesting: the handoff between these personas is where the real
+                  value is. The data engineer publishes, the data scientist discovers, the security
+                  person audits. The catalog is where they meet.
                 </p>
               </div>
             </section>
@@ -182,8 +166,8 @@ export default function RationalePage() {
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
-                  We picked five common jobs to be done for a data scientist working with
-                  loaded data. Every UI element traces back to one of these:
+                  I picked five common jobs for a data scientist working with loaded data
+                  and tried to tie every UI element back to one of them:
                 </p>
 
                 <div className="space-y-3 py-2">
@@ -227,9 +211,8 @@ export default function RationalePage() {
                 </div>
 
                 <p>
-                  Each design decision rests on a testable assumption. Together these form
-                  a first-month research programme, where every assumption can be validated
-                  through usability testing, A/B tests, or analytics.
+                  Each of these rests on an assumption that could be tested. Together they&apos;d
+                  make a reasonable first-month research plan.
                 </p>
               </div>
             </section>
@@ -244,41 +227,37 @@ export default function RationalePage() {
                   Light mode
                 </h3>
                 <p>
-                  Data scientists work in Jupyter, Colab, Observable, Streamlit. Their tools
-                  use light backgrounds, proportional fonts, generous whitespace. Matching that
-                  environment is a practical choice, not an aesthetic one. References: Jupyter
-                  notebooks, Observable, Google Colab output cells, Notion databases, dbt docs.
+                  Data scientists work in Jupyter, Colab, Observable, Streamlit. All light
+                  backgrounds, proportional fonts, generous whitespace. Matching their
+                  environment felt more useful than defaulting to dark mode.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Vocabulary
                 </h3>
                 <p>
-                  The interface speaks the user&apos;s language, not the database&apos;s.
                   Datasets instead of tables, records instead of rows, text instead of varchar.
-                  A data scientist seeing &ldquo;bigint&rdquo; feels like they&apos;ve opened
-                  the wrong tool. Small change, large impact on confidence.
+                  A data scientist seeing &ldquo;bigint&rdquo; probably feels like they&apos;ve
+                  opened the wrong tool.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Entity grouping
                 </h3>
                 <p>
-                  dlt loads 16 datasets from GitHub. Showing 16 flat cards is overwhelming.
-                  They cluster into 4 entities (Issues, Pulls, Stargazers, Repo). We iterated
-                  through four versions: flat cards, nested chips, tree structures, then
-                  the current flat-sibling layout that reflects how dlt actually works.
+                  dlt loads 16 datasets from GitHub. Showing 16 flat cards felt overwhelming,
+                  but they cluster naturally into 4 entities (Issues, Pulls, Stargazers, Repo).
+                  Went through a few versions before landing on the current flat-sibling layout.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   Smart field ordering
                 </h3>
                 <p>
-                  The first 4-5 visible fields determine whether a data scientist thinks a dataset
-                  is useful or junk. Database order showed 6 URL fields first, burying the
-                  interesting data. We built a scoring system: identity fields (number, title, state)
-                  at score 0, URLs at score 7, infrastructure IDs at score 8. Small change, big
-                  impact on first impression.
+                  The first 4-5 visible fields pretty much determine whether someone thinks a
+                  dataset is useful. Database order showed 6 URL fields first, burying the
+                  interesting data. A simple scoring system fixes this: identity fields (number,
+                  title, state) at score 0, URLs at 7, infrastructure IDs at 8.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
@@ -286,9 +265,8 @@ export default function RationalePage() {
                 </h3>
                 <p>
                   Each entity card shows a one-line description inferred from the schema by an LLM.
-                  Pre-generated and stored alongside the catalog data, no runtime calls.
-                  This scales to any dataset: swap GitHub for Stripe or Salesforce and the
-                  descriptions adapt. The designer defines the system, the AI fills it in.
+                  Pre-generated and stored alongside the catalog data, no runtime calls. Swap
+                  GitHub for Stripe or Salesforce and the descriptions adapt automatically.
                 </p>
               </div>
             </section>
@@ -300,7 +278,7 @@ export default function RationalePage() {
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
-                  Research first, specs second, build third. The methodology:
+                  How I approached it:
                 </p>
                 <ol className="space-y-2 pl-5 list-decimal">
                   <li>
@@ -338,21 +316,18 @@ export default function RationalePage() {
                   Tools
                 </h3>
                 <p>
-                  Claude for research and strategic analysis. MacWhisper for transcribing primary
-                  sources. Obsidian for working documents. Cursor + Claude Code for building.
-                  AI sped up research that might have taken a week, but the design decisions
-                  were human-driven.
+                  Claude for research and analysis. MacWhisper for transcribing primary sources.
+                  Obsidian for working documents. Cursor + Claude Code for building. AI helped
+                  compress what might have been a week of research into a weekend.
                 </p>
 
                 <h3 className="text-base font-medium text-foreground !mt-6 !mb-1">
                   What&apos;s next
                 </h3>
                 <p>
-                  The catalog is surface one. The design patterns here (notebook-native
-                  aesthetic, entity-level thinking, code-generated output, trust through
-                  transparency) extend to every surface dlt+ needs: marketplace browsing (1,000+
-                  connectors), schema and contract visualization, audit and security views. One
-                  design language, many surfaces.
+                  The catalog is one surface. The same patterns (notebook-native aesthetic,
+                  entity-level thinking, code-generated output) could extend to other parts of
+                  dlt+: marketplace browsing, schema visualization, audit views.
                 </p>
               </div>
             </section>
