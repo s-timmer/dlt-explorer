@@ -48,8 +48,8 @@ export default function RationalePage() {
 
           {/* Content */}
           <main className="space-y-20">
-            <header>
-              <h1 className="text-3xl font-semibold tracking-tight text-foreground mb-3">
+            <header className="mb-[-2rem]">
+              <h1 className="text-2xl font-semibold tracking-tight text-foreground mb-2">
                 Design rationale
               </h1>
               <p className="text-muted-foreground max-w-2xl leading-relaxed">
