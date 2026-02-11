@@ -32,10 +32,20 @@ The explorer reads static JSON from `public/data/`. To use it with your own dlt 
 
 See [CUSTOMIZATION.md](CUSTOMIZATION.md) for details on how to generate these files — including instructions an LLM can follow to create them from your schema.
 
+## Storybook
+
+The project includes a Storybook with component documentation and design system tokens (spacing, typography, color). To run it locally:
+
+```bash
+npm run storybook
+```
+
+Open [localhost:6006](http://localhost:6006). A link also appears in the app sidebar during development.
+
 ## How it works
 
 No runtime API calls, no live database connection. A dlt pipeline loads data into DuckDB, a script exports it as static JSON, and Next.js renders it. The catalog is rendered output, like `df.head()` in a notebook.
 
 ## Built with
 
-Next.js, Shadcn UI, Tailwind CSS.
+Next.js, Shadcn UI, Tailwind CSS, Storybook.
