@@ -17,16 +17,7 @@ export function ConversationThread({ exchanges }: ConversationThreadProps) {
   }, [exchanges.length]);
 
   if (exchanges.length === 0) {
-    return (
-      <div className="h-full flex flex-col items-center justify-center">
-        <div className="text-center max-w-sm">
-          <p className="text-sm text-muted-foreground/80 leading-relaxed">
-            Explore this dataset by asking questions in natural language.
-            Results will appear here as charts, tables, and stats.
-          </p>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (

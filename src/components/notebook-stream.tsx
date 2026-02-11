@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { ArrowLeft } from "lucide-react";
 import type { CatalogTable, Metadata } from "@/lib/types";
 import type {
   AllTableData,
@@ -14,7 +15,6 @@ interface NotebookStreamProps {
   allTableData: AllTableData;
   catalog: CatalogTable[];
   metadata: Metadata;
-  defaultTable: string;
 }
 
 function rowCountLabel(count: number): string {
@@ -40,46 +40,44 @@ export function NotebookStream({
   allTableData,
   catalog,
   metadata,
-  defaultTable,
 }: NotebookStreamProps) {
-  const [selectedTable, setSelectedTable] = useState(defaultTable);
+  const [selectedTable, setSelectedTable] = useState<string | null>(null);
 
-  const { table, tableData, relatedData, keyFields, description } =
-    useMemo(() => {
-      const t = catalog.find((c) => c.table_name === selectedTable);
-      if (!t) {
-        return {
-          table: catalog[0],
-          tableData: [] as Record<string, unknown>[],
-          relatedData: {} as Record<string, Record<string, unknown>[]>,
-          keyFields: [] as string[],
-          description: undefined as string | undefined,
-        };
-      }
+  // Derive data for the selected table
+  const selectedData = useMemo(() => {
+    if (!selectedTable) return null;
 
-      const bundle = allTableData[selectedTable] ?? {
-        tableData: [],
-        relatedData: {},
-        keyFields: [],
-        description: undefined,
-      };
+    const t = catalog.find((c) => c.table_name === selectedTable);
+    if (!t) return null;
 
-      return {
-        table: t,
-        tableData: bundle.tableData,
-        relatedData: bundle.relatedData,
-        keyFields: bundle.keyFields,
-        description: bundle.description,
-      };
-    }, [selectedTable, catalog, allTableData]);
+    const bundle = allTableData[selectedTable] ?? {
+      tableData: [],
+      relatedData: {},
+      keyFields: [],
+      description: undefined,
+    };
+
+    return {
+      table: t,
+      tableData: bundle.tableData,
+      relatedData: bundle.relatedData,
+      keyFields: bundle.keyFields,
+      description: bundle.description,
+    };
+  }, [selectedTable, catalog, allTableData]);
 
   const totalRows = catalog
     .filter((t) => !t.table_name.startsWith("_dlt_"))
     .reduce((sum, t) => sum + t.row_count, 0);
 
+  // Find entity summary for the selected table (for record count in context bar)
+  const selectedEntity = selectedTable
+    ? entities.find((e) => e.tableName === selectedTable)
+    : null;
+
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
-      {/* Metadata header */}
+    <div className="flex flex-col h-[calc(100vh-3rem)]">
+      {/* Metadata header — always visible */}
       <header className="mb-element">
         <h1 className="text-2xl font-semibold tracking-tight text-foreground capitalize">
           {metadata.dataset_name.replace(/_/g, " ")}
@@ -87,32 +85,55 @@ export function NotebookStream({
         <p className="text-sm text-muted-foreground mt-1">
           {metadata.source_label ?? metadata.pipeline_name} · {entities.length}{" "}
           datasets · {rowCountLabel(totalRows)} records ·{" "}
-          <span title={new Date(metadata.last_loaded).toLocaleString()}>
+          <span
+            title={new Date(metadata.last_loaded).toLocaleString("en-US")}
+            suppressHydrationWarning
+          >
             updated {relativeTime(metadata.last_loaded)}
           </span>
         </p>
+      </header>
 
-        {/* Dataset selector */}
-        <div className="mt-element">
+      {selectedTable === null || !selectedData ? (
+        /* Phase 1 — Browse: show dataset cards */
+        <div className="flex-1">
           <CompactCatalog
             entities={entities}
-            selectedTable={selectedTable}
             onSelect={setSelectedTable}
           />
         </div>
-      </header>
+      ) : (
+        /* Phase 2 — Explore: context bar + conversation */
+        <>
+          {/* Context bar */}
+          <button
+            onClick={() => setSelectedTable(null)}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-element cursor-pointer self-start"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            <span className="capitalize">
+              {selectedTable.replace(/_/g, " ")}
+            </span>
+            {selectedEntity && (
+              <span className="text-muted-foreground/60">
+                · {rowCountLabel(selectedEntity.rowCount)} records
+              </span>
+            )}
+          </button>
 
-      {/* Explore view — key forces remount on table switch */}
-      <div className="flex-1 min-h-0">
-        <ExploreView
-          key={selectedTable}
-          table={table}
-          tableData={tableData}
-          relatedData={relatedData}
-          description={description}
-          keyFields={keyFields}
-        />
-      </div>
+          {/* Explore view — key forces remount on table switch */}
+          <div className="flex-1 min-h-0">
+            <ExploreView
+              key={selectedTable}
+              table={selectedData.table}
+              tableData={selectedData.tableData}
+              relatedData={selectedData.relatedData}
+              description={selectedData.description}
+              keyFields={selectedData.keyFields}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }

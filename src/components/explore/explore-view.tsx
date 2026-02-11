@@ -11,7 +11,6 @@ import {
   matchExchange,
   getFallbackResponse,
 } from "@/lib/mock-conversations";
-import { DatasetContext } from "./dataset-context";
 import { ConversationThread } from "./conversation-thread";
 import { QuestionInput } from "./question-input";
 
@@ -147,16 +146,8 @@ export function ExploreView({
 
   return (
     <div className="flex flex-col h-full">
-      {/* Context header */}
-      <DatasetContext
-        table={table}
-        description={description}
-        keyFields={keyFields}
-        accessedFields={state.accessedFields}
-      />
-
       {/* Conversation thread */}
-      <div className="flex-1 min-h-0 mt-card">
+      <div className="flex-1 min-h-0">
         <ConversationThread exchanges={state.exchanges} />
       </div>
 
