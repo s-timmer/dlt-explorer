@@ -10,6 +10,7 @@ const sections = [
   { id: "personas", label: "Personas" },
   { id: "jobs", label: "Jobs to be done" },
   { id: "decisions", label: "Design decisions" },
+  { id: "explore", label: "V2: Explore" },
   { id: "process", label: "Process" },
 ];
 
@@ -271,7 +272,132 @@ export default function RationalePage() {
               </div>
             </section>
 
-            {/* 5. Process */}
+            {/* 5. V2: Conversational exploration */}
+            <section id="explore">
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
+                V2: Conversational exploration
+              </h2>
+              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
+                <p>
+                  After the catalog was built, dltHub published their{" "}
+                  <a
+                    href="https://medium.com/@dlthub.com/were-building-dlthub-to-make-data-engineering-accessible-for-all-python-developers-0a57cb5eb5c0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:underline underline-offset-2"
+                  >
+                    July 2025 vision announcement
+                  </a>
+                  . Two things stood out: marimo notebooks are now the primary product surface,
+                  and LLM-native workflows are at the core. The Workspace Notebook demo showed
+                  data scientists querying pipelines through natural language inside notebook
+                  cells.
+                </p>
+
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
+                  The insight
+                </h3>
+                <p>
+                  A marimo notebook is already a conversation with data. Each cell is a question,
+                  each output is a response, and the thread persists. But the current notebook UI
+                  doesn&apos;t make it <em>feel</em> like a conversation. It still looks and
+                  behaves like a code editor.
+                </p>
+                <p>
+                  The explore view demonstrates what that experience could feel like if designed
+                  around the user&apos;s actual mental model: ask a question in plain language,
+                  get a structured visual response, build understanding incrementally. No code
+                  cells, no SQL knowledge required.
+                </p>
+
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
+                  How it works
+                </h3>
+                <p>
+                  From any dataset detail page, users can enter the explore view. A context header
+                  shows what the AI &ldquo;knows&rdquo; about the dataset: table name, record count,
+                  key fields. As the conversation progresses, accessed fields highlight to show
+                  growing context.
+                </p>
+                <p>
+                  Each exchange follows the same pattern: natural language question, realistic SQL
+                  (displayed but never executed), and a typed result: a data table, stat cards,
+                  or a horizontal bar chart. Suggestion chips guide first-time users toward
+                  productive questions.
+                </p>
+                <p>
+                  The mock conversation system uses keyword matching against pre-authored scripts.
+                  Each script runs real JavaScript functions against the actual JSON data, so the
+                  numbers in the results are real. A simulated delay with skeleton animation
+                  creates the rhythm of an AI response.
+                </p>
+
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
+                  Three result types, no charting library
+                </h3>
+                <div className="space-y-3 py-2">
+                  <div className="rounded-lg border bg-card p-4">
+                    <p className="font-medium text-foreground text-base mb-1">Data table</p>
+                    <p className="text-sm text-muted-foreground">
+                      Reuses the existing shadcn table component. Handles null values,
+                      long text truncation, and column ordering from the v1 field config system.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border bg-card p-4">
+                    <p className="font-medium text-foreground text-base mb-1">Stat cards</p>
+                    <p className="text-sm text-muted-foreground">
+                      Large number, label, optional detail. Used for counts and single-value
+                      answers. Wraps into a responsive grid for multi-stat responses.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border bg-card p-4">
+                    <p className="font-medium text-foreground text-base mb-1">Bar chart</p>
+                    <p className="text-sm text-muted-foreground">
+                      CSS-only horizontal bars using percentage widths relative to the max value.
+                      Uses the existing chart color variables. No D3, no Recharts, just divs.
+                    </p>
+                  </div>
+                </div>
+
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
+                  Component-first process
+                </h3>
+                <p>
+                  The explore view was built component-first: each piece (stat card, bar chart,
+                  SQL block, exchange cell, input with suggestions) was developed and documented
+                  in Storybook before composing the full page. This forced clear interfaces
+                  between components and made edge cases visible early: What does a stat card
+                  look like with a very long value? How does the bar chart handle a single item?
+                  What happens when the SQL block is empty?
+                </p>
+                <p>
+                  The{" "}
+                  <a
+                    href="http://localhost:6006"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:underline underline-offset-2"
+                  >
+                    Storybook
+                  </a>{" "}
+                  documents all 8 components with their key states and variants, serving as
+                  both a development tool and a design system artifact.
+                </p>
+
+                <h3 className="text-lg font-medium text-foreground !mt-6 !mb-1">
+                  The design argument
+                </h3>
+                <p>
+                  This makes a specific claim aligned with dltHub&apos;s direction: the
+                  notebook-as-conversation pattern is real, but the UX hasn&apos;t caught up.
+                  Data scientists think in questions and answers, not code cells and execution
+                  order. The explore view shows what the marimo notebook experience could feel
+                  like if designed around that mental model.
+                </p>
+              </div>
+            </section>
+
+            {/* 6. Process */}
             <section id="process">
               <h2 className="text-2xl font-semibold text-foreground mb-3">
                 Process
@@ -302,7 +428,7 @@ export default function RationalePage() {
                     with iteration history.
                   </li>
                   <li>
-                    <span className="font-medium text-foreground">Build.</span> dlt pipeline, DuckDB, JSON
+                    <span className="font-medium text-foreground">Build (v1).</span> dlt pipeline, DuckDB, JSON
                     export, Next.js + Shadcn frontend. Real data, not mocks.
                   </li>
                   <li>
@@ -317,6 +443,13 @@ export default function RationalePage() {
                     the explorer at their own dlt pipeline. Published on{" "}
                     <a href="https://github.com/s-timmer/dlt-explorer" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline underline-offset-2">GitHub</a>{" "}
                     as a reusable tool.
+                  </li>
+                  <li>
+                    <span className="font-medium text-foreground">Build (v2).</span> After dltHub&apos;s
+                    vision announcement, added conversational exploration. Component-first workflow:
+                    built each component in Storybook isolation, documented states and variants,
+                    then composed the full page. 10 new components, 26 story variants, mock
+                    conversation system with real data.
                   </li>
                 </ol>
 
@@ -333,9 +466,11 @@ export default function RationalePage() {
                   What&apos;s next
                 </h3>
                 <p>
-                  The catalog is one surface. The same patterns (notebook-native aesthetic,
-                  entity-level thinking, code-generated output) could extend to other parts of
-                  dlt+: marketplace browsing, schema visualization, audit views.
+                  The catalog is one surface. The conversational explore view is another. Together
+                  they demonstrate a pattern: data infrastructure can have designed experiences
+                  without adding GUIs that fight the code-first strategy. The same approach could
+                  extend to marketplace browsing, schema visualization, pipeline debugging, and
+                  audit views.
                 </p>
               </div>
             </section>
@@ -344,10 +479,19 @@ export default function RationalePage() {
 
         {/* Footer */}
         <footer className="mt-20 pt-8 border-t text-sm text-muted-foreground">
-          <p>
+          <p className="flex gap-4">
             <Link href="/" className="text-foreground hover:underline underline-offset-2">
               View the explorer
             </Link>
+            <span className="text-border">/</span>
+            <a
+              href="http://localhost:6006"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:underline underline-offset-2"
+            >
+              Storybook
+            </a>
           </p>
         </footer>
       </div>

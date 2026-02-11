@@ -1,0 +1,48 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { RadiusScale, RadiusUsage, SpacingTokens, SpacingPatterns } from "./design-system/spacing-samples";
+
+<Meta title="Design System/Spacing & Radius" />
+
+# Spacing & Radius
+
+Layout spacing uses semantic tokens derived from CSS custom properties. Border radius uses a custom scale derived from a single `--radius` base token.
+
+---
+
+## Border Radius
+
+Base token: `--radius: 0.625rem` (10px). All other sizes are computed relative to this.
+
+<RadiusScale />
+
+---
+
+## Usage by Component
+
+<RadiusUsage />
+
+---
+
+## Semantic Spacing Tokens
+
+Spacing in explore components uses semantic tokens defined as CSS custom properties in `globals.css` and mapped to Tailwind via `@theme inline`. Changing a single `--explore-*` variable in `:root` updates all components that use that token.
+
+<SpacingTokens />
+
+---
+
+## Spacing in Context
+
+How the tokens map to actual UI patterns:
+
+<SpacingPatterns />
+
+---
+
+## Design Decisions
+
+- **Semantic tokens over raw values** — `gap-section` is more readable than `gap-6` and ensures consistency. When tweaking spacing during design review, change the token once and every instance updates.
+- **Single radius base token** — changing `--radius` from 0.625rem to any other value rescales the entire system. This makes it trivial to go from rounded to sharp (set to 0) or pill-shaped (set to 1.5rem).
+- **Increasing radius for larger surfaces** — small elements (bars) get radius-sm, cards get radius-xl. This follows the optical principle that larger shapes need more rounding to appear equally rounded to the eye.
+- **Consistent card padding** — `p-card` (16px) for card internals. Token-driven, so it can be adjusted globally without hunting through individual components.
+- **5-tier spacing scale** — chip (6px) → tight (10px) → element (12px) → card (16px) → section (24px). Each level serves a distinct relationship type, from inline items to major sections.

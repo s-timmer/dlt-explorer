@@ -1,0 +1,37 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { FontFamilies, TypeScale, FontWeights } from "./design-system/typography-samples";
+
+<Meta title="Design System/Typography" />
+
+# Typography
+
+Two typefaces, loaded via `next/font/google` as CSS custom property font stacks.
+
+---
+
+## Font Families
+
+<FontFamilies />
+
+---
+
+## Type Scale
+
+Tailwind's default type scale, applied through utility classes. We use a constrained subset to maintain visual hierarchy.
+
+<TypeScale />
+
+---
+
+## Font Weights
+
+<FontWeights />
+
+---
+
+## Design Decisions
+
+- **Inter** — chosen for its large x-height and open apertures, which keep small text (text-xs, text-sm) readable in dense data tables. The variable font keeps bundle size low.
+- **JetBrains Mono** — the best monospace font for code readability. Distinguished characters are critical when SQL snippets are displayed alongside data.
+- **Constrained scale** — most UI uses just `text-sm` and `text-xs`. This keeps the interface dense without feeling cluttered, matching the data-heavy context where screen real estate matters.
+- **Weight restraint** — three weights maximum (400, 500, 600). Bold (700) is intentionally avoided to keep the interface calm and let data stand out instead of chrome.

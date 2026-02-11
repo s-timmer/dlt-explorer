@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { SemanticColors, ChartColors } from "./design-system/color-swatches";
+
+<Meta title="Design System/Colors" />
+
+# Color Palette
+
+All colors use the **oklch** color space for perceptual uniformity. Tokens are defined as CSS custom properties in `globals.css` and mapped to Tailwind utilities via `@theme inline`.
+
+---
+
+## Semantic Colors
+
+These are the core UI colors. Each has a foreground counterpart for text on that surface.
+
+<SemanticColors />
+
+---
+
+## Chart Colors
+
+Five purpose-built data visualization colors, optimized for distinguishability in bar charts and stat cards.
+
+<ChartColors />
+
+---
+
+## Design Decisions
+
+- **oklch color space** — perceptually uniform, so a lightness of 0.5 *looks* like mid-gray regardless of hue. Makes it easy to reason about contrast ratios.
+- **Near-white background** with warm hue angle (80) — subtle warmth that avoids the clinical feel of pure white, without looking "creamy". The card surface is slightly lighter for layering.
+- **Neutral grays** for UI chrome (secondary, muted, border, input) — keeps the interface quiet so data stands out.
+- **Five chart colors** span warm to cool to warm on the hue wheel, maximizing visual separation for adjacent bars.
+- **Light mode only** — dark mode tokens are defined but unused. For a portfolio demo, one polished mode is better than two half-finished ones.

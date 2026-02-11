@@ -123,6 +123,43 @@ Every UI element traces back to a Job To Be Done:
 
 See `/project/03-data-scientist-jtbd.md` and `/project/04-design-decisions.md` for the full JTBD framework, assumptions, and verification plan.
 
+## Spacing tokens
+
+Spacing uses semantic CSS custom properties defined in `globals.css`, mapped to Tailwind via `@theme inline`. Use these instead of raw Tailwind values in explore components:
+
+| Token | Tailwind class | Value | Use for |
+|---|---|---|---|
+| `--spacing-section` | `gap-section` | 24px | Between exchange cards in conversation |
+| `--spacing-element` | `gap-element` | 12px | Between elements within a card (answer + chart + SQL) |
+| `--spacing-tight` | `gap-tight` | 10px | Between closely related items (bar chart rows, input + suggestions) |
+| `--spacing-chip` | `gap-chip` | 6px | Between chips, badges, small inline items |
+| `--spacing-card` | `p-card` | 16px | Card internal padding, vertical rhythm between sections |
+
+The base values live as `--explore-*` custom properties in `:root`, then map to `--spacing-*` in `@theme inline`. To adjust a spacing globally, change the single `--explore-*` value.
+
+**Rule:** When editing an explore component, use semantic tokens, not raw values. If `gap-3` or `p-4` appears in an explore file, it should be `gap-element` or `p-card`.
+
+## Change propagation — scenario-driven workflow
+
+When tweaking details during a scenario walkthrough (`01-research/06-explore-scenario.md`):
+
+1. **Spacing/padding change** → Update the token in `globals.css`. All components using that token update automatically.
+2. **Component-level change** (answer text, result type, suggestion text) → Update `mock-conversations.ts` first, then update the matching Storybook story fixture.
+3. **Structural/layout change** → Update the component, verify in Storybook, verify in the scenario.
+
+The scenario document describes the intended user experience. When it conflicts with the implementation, the scenario is right and the code should change.
+
+### Single source of truth chain
+
+```
+globals.css (tokens) → components (use tokens) → Storybook stories (import from fixtures) → mock-conversations.ts (conversation data)
+```
+
+- **Spacing:** `globals.css` → all components
+- **Conversation data:** `mock-conversations.ts` → `explore-fixtures.ts` → Storybook stories
+- **Radius:** `globals.css` (`--radius`) → computed scales → components
+- **Colors:** `globals.css` (oklch custom properties) → Tailwind tokens → components
+
 ## Important
 - This is a portfolio piece — visual polish matters more than feature count
 - Two views done beautifully beats five views done roughly

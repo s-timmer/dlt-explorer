@@ -222,6 +222,15 @@ export default async function TableDetailPage({
               {desc.description}
             </p>
           )}
+          {/* Explore link — only for main tables (not child or _dlt_ tables) */}
+          {!name.includes("__") && !name.startsWith("_dlt_") && (
+            <Link
+              href={`/explore/${name}`}
+              className="inline-flex items-center gap-1.5 mt-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <span>Explore this dataset →</span>
+            </Link>
+          )}
         </header>
 
         {/* Related tables */}
