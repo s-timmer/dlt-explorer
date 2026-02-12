@@ -71,6 +71,10 @@ This isn't cosmetic. A data scientist seeing "varchar" and "bigint" feels like t
 
 ## Page structure
 
+### Vertical sidebar (all pages)
+- Fixed left sidebar with icon navigation: Home (catalog), MessageSquare (explore), Info (rationale), BookOpen (Storybook — dev only)
+- Active page icon is brighter (`text-muted-foreground`), inactive icons are dimmer (`text-muted-foreground/30`)
+
 ### Catalog page (`/`)
 - **Header**: Dataset name (capitalized), source · dataset count · total records. Freshness right-aligned with refresh action.
 - **Entity cards**: Group dlt's flat datasets by entity. 4 cards (Issues, Pulls, Stargazers, Repo) instead of 16 individual datasets. Each card shows:
@@ -88,6 +92,15 @@ This isn't cosmetic. A data scientist seeing "varchar" and "bigint" feels like t
   1. **Schema** — fields sorted by semantic importance (identity fields first, URLs and IDs last). Friendly type badges. Pipeline metadata fields separated at bottom with reduced opacity.
   2. **Data preview** — first 50 records. Same smart field ordering as schema. Values truncated at 80 chars with tooltip. Null values as "—", booleans as colored badges.
 - The feel: "here's everything you need to know about this dataset before you start working with it"
+
+### Explore page (`/explore`)
+- Notebook-style chat explorer — two-phase UI: browse datasets, then explore one in a conversational interface
+- Uses `NotebookStream` component with `CompactCatalog` for dataset selection
+- Experimental — separate from the main catalog, accessible via the sidebar chat icon
+
+### Rationale page (`/rationale`)
+- Design rationale document: context, personas, JTBD framework, design decisions, process
+- Accessible via the info icon in the sidebar
 
 ### Smart field ordering
 Fields are sorted by a scoring system, not database order:
@@ -121,7 +134,7 @@ Every UI element traces back to a Job To Be Done:
 | "Let me see what's in here" | Smart field ordering, data preview |
 | "How do datasets connect?" | Related datasets on detail page |
 
-See `/project/03-data-scientist-jtbd.md` and `/project/04-design-decisions.md` for the full JTBD framework, assumptions, and verification plan.
+The full JTBD framework, assumptions, and verification plan are rendered on the `/rationale` page.
 
 ## Spacing tokens
 
