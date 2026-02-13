@@ -173,6 +173,15 @@ globals.css (tokens) → components (use tokens) → Storybook stories (import f
 - **Radius:** `globals.css` (`--radius`) → computed scales → components
 - **Colors:** `globals.css` (oklch custom properties) → Tailwind tokens → components
 
+## Deployment
+
+- **App**: Deployed on Vercel (auto-deploys from `main`)
+- **Storybook**: Hosted on Chromatic — after any change to components, stories, or design tokens, redeploy with:
+  ```
+  npx chromatic --project-token=chpt_55af0d9de733a95
+  ```
+- **Rule**: When pushing changes that affect components, stories, design tokens (globals.css), or Storybook docs (.mdx), always redeploy Storybook to Chromatic before considering the work done.
+
 ## Important
 - This is a portfolio piece — visual polish matters more than feature count
 - Two views done beautifully beats five views done roughly

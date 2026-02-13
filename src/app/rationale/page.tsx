@@ -373,7 +373,7 @@ export default function RationalePage() {
                 <p>
                   The{" "}
                   <a
-                    href="http://localhost:6006"
+                    href={process.env.NODE_ENV === "development" ? "http://localhost:6006" : "https://698ef1ee455ce2c83ed99d52-hhrnlzhbnd.chromatic.com/"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground hover:underline underline-offset-2"
@@ -485,7 +485,7 @@ export default function RationalePage() {
             </Link>
             <span className="text-border">/</span>
             <a
-              href="http://localhost:6006"
+              href={process.env.NODE_ENV === "development" ? "http://localhost:6006" : "https://698ef1ee455ce2c83ed99d52-hhrnlzhbnd.chromatic.com/"}
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:underline underline-offset-2"

@@ -25,7 +25,9 @@ export default async function ExploreLandingPage() {
   const entities = entitiesToSummaries(entityGroups, descriptions);
   const allTableData = await loadAllTableData(catalog, descriptions);
 
-  const isDev = process.env.NODE_ENV === "development";
+  const storybookUrl = process.env.NODE_ENV === "development"
+    ? "http://localhost:6006"
+    : "https://698ef1ee455ce2c83ed99d52-hhrnlzhbnd.chromatic.com/";
 
   return (
     <div className="min-h-screen bg-background flex">
@@ -52,17 +54,15 @@ export default async function ExploreLandingPage() {
         >
           <Info className="h-4 w-4" />
         </Link>
-        {isDev && (
-          <a
-            href="http://localhost:6006"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground/30 hover:text-muted-foreground transition-colors"
-            title="Storybook"
-          >
-            <BookOpen className="h-4 w-4" />
-          </a>
-        )}
+        <a
+          href={storybookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground/30 hover:text-muted-foreground transition-colors"
+          title="Storybook"
+        >
+          <BookOpen className="h-4 w-4" />
+        </a>
       </aside>
 
       {/* Main content */}
