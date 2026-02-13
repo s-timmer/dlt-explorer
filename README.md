@@ -34,7 +34,11 @@ See [CUSTOMIZATION.md](CUSTOMIZATION.md) for details on how to generate these fi
 
 ## Storybook
 
-The project includes a Storybook with component documentation and design system tokens (spacing, typography, color). To run it locally:
+The project includes a Storybook with component documentation and design system tokens (spacing, typography, color).
+
+**[Browse the Storybook →](https://698ef1ee455ce2c83ed99d52-hhrnlzhbnd.chromatic.com/)**
+
+To run it locally:
 
 ```bash
 npm run storybook
