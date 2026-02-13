@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { CompositionDiagram, ExchangeStates } from "./design-system/composition-diagram";
+
+<Meta title="Design System/Composition" />
+
+# Composition
+
+How the Explore components fit together. The conversational data explorer uses a small set of components that compose into different states depending on the AI's response.
+
+---
+
+## Component tree
+
+<CompositionDiagram />
+
+---
+
+## Exchange states
+
+Each exchange (one question → answer pair) can render in different states depending on the response type. The `ExchangeCell` component handles all variations:
+
+<ExchangeStates />
+
+---
+
+## Design Decisions
+
+- **Single container, multiple result types** — `ExchangeCell` is the wrapper. It doesn't know or care whether the result is a chart, table, or stat. This keeps the conversation layout consistent regardless of content.
+- **Thinking state is a first-class component** — Not a spinner overlay. The `ThinkingIndicator` occupies the same space an answer would, maintaining layout stability during loading.
+- **SQL is always optional and collapsed** — The SQL block shows the query that produced the result, but it's tucked away by default. Data scientists care about the answer first, the query second.
+- **Flat composition** — No deep nesting. `ConversationThread` holds `ExchangeCell`s. Each `ExchangeCell` holds its parts directly. This makes individual components easy to test in Storybook and reason about in code.

@@ -1,0 +1,40 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System/Overview" />
+
+# Design System
+
+A visual design system for **dlt explorer** — a data catalog built for data scientists, not database admins.
+
+---
+
+## Who this is for
+
+The target persona is a data scientist — someone the CTO describes as *"a working student who only knows Python, no SQL."* They live in Jupyter notebooks, pandas, and matplotlib. They think in DataFrames and records, not tables and rows.
+
+There are 5-10x more data scientists per company than data engineers. They're the expansion audience for dlt's platform, and right now they have no designed experience at all.
+
+---
+
+## Design principles
+
+- **Notebook-native feel** — The visual language should feel like it belongs alongside Jupyter, Observable, and Colab output cells. Not like a separate portal you context-switch into.
+- **Warm, not clinical** — Soft backgrounds with warmth (oklch hue angle 80), generous whitespace, approachable type. Think Notion, not pgAdmin.
+- **Data over chrome** — The interface stays quiet so the data stands out. Three font weights maximum. Neutral grays for UI elements. Color is reserved for data visualization and type badges.
+- **Every element traces to a user job** — Entity grouping answers "what data do we have?", field previews answer "is this relevant?", freshness timestamps answer "can I trust this?" Nothing decorative.
+
+---
+
+## Visual references
+
+Jupyter notebooks, Observable, Google Colab output cells, Notion databases, dbt docs. These are the tools data scientists already use — the catalog should feel like a natural extension of that world.
+
+---
+
+## What's in this design system
+
+- **[Vocabulary](/docs/design-system-vocabulary--docs)** — The terminology mapping from database language to data scientist language
+- **[Colors](/docs/design-system-colors--docs)** — Semantic UI colors and chart palette in oklch
+- **[Typography](/docs/design-system-typography--docs)** — Inter + JetBrains Mono, type scale, weight restraint
+- **[Spacing & Radius](/docs/design-system-spacing-radius--docs)** — Semantic spacing tokens and border radius scale
+- **[Composition](/docs/design-system-composition--docs)** — How Explore components fit together

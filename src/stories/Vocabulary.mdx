@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { VocabularyTable } from "./design-system/vocabulary-table";
+
+<Meta title="Design System/Vocabulary" />
+
+# Vocabulary
+
+The interface speaks the user's language, not the database's. Every label, count, and heading uses terms that a data scientist already knows from pandas and notebooks.
+
+---
+
+## The mapping
+
+<VocabularyTable />
+
+---
+
+## Why this matters
+
+This isn't cosmetic. A data scientist seeing "varchar" and "bigint" feels like they've opened the wrong tool. They think in DataFrames and records, not tables and rows. The vocabulary shift signals: *this tool was built for you.*
+
+The rule is simple: if pandas uses a different word than PostgreSQL, we use the pandas word.
+
+---
+
+## Design Decisions
+
+- **"datasets" not "tables"** — dlt creates flat tables with `__` separators for nested data (e.g. `issues__labels`). We group these under entities and call them datasets, which matches how data scientists think about data: as collections, not database objects.
+- **"records" not "rows"** — A record is something with meaning. A row is a position in a grid. Data scientists work with records.
+- **"fields" not "columns"** — Consistent with JSON, pandas `.columns`, and general data science terminology. Also shorter, which helps in dense schema views.
+- **Friendly type labels** — `text`, `number`, `date` instead of `varchar`, `bigint`, `timestamp`. The underlying types are still available in the schema detail, but the first impression uses plain language.
