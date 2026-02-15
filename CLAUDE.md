@@ -176,11 +176,10 @@ globals.css (tokens) → components (use tokens) → Storybook stories (import f
 ## Deployment
 
 - **App**: Deployed on Vercel (auto-deploys from `main`)
-- **Storybook**: Hosted on Chromatic — after any change to components, stories, or design tokens, redeploy with:
+- **Storybook**: Hosted on Chromatic — auto-deploys on push to `main` via GitHub Action. For manual deploys:
   ```
-  npx chromatic --project-token=chpt_55af0d9de733a95
+  npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
   ```
-- **Rule**: When pushing changes that affect components, stories, design tokens (globals.css), or Storybook docs (.mdx), always redeploy Storybook to Chromatic before considering the work done.
 
 ## Important
 - This is a portfolio piece — visual polish matters more than feature count
