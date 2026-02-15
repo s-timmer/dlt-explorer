@@ -45,7 +45,7 @@ export function RunHistory({ runs }: { runs: PipelineRun[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [visible, setVisible] = useState(false);
   const barRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const delayRef = useRef<ReturnType<typeof setTimeout>>();
+  const delayRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const reversed = [...runs].reverse();
 
   const maxDuration = Math.max(...reversed.map((r) => r.duration), 1);
