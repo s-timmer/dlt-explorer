@@ -39,14 +39,14 @@ export const Fresh: Story = {
   },
 };
 
-/** Pipeline is a bit late — amber clock icon with tooltip. */
+/** Pipeline is a bit late — overdue state shown on card body. */
 export const Aging: Story = {
   args: {
     pipeline: { ...basePipeline, lastRun: "90 minutes ago", schedule: "Every hour" },
   },
 };
 
-/** Pipeline is significantly overdue — red clock icon. */
+/** Pipeline is significantly overdue — shown on card body. */
 export const Stale: Story = {
   args: {
     pipeline: { ...basePipeline, lastRun: "3 hours ago", schedule: "Every hour" },

@@ -1,5 +1,3 @@
-import { Clock } from "lucide-react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import type { Pipeline } from "./types";
 
 /**
@@ -65,21 +63,8 @@ function getFreshnessLabel(pipeline: Pipeline): string | null {
 }
 
 export function FreshnessTimestamp({ pipeline }: { pipeline: Pipeline }) {
-  const level = getFreshnessLevel(pipeline);
-  const label = getFreshnessLabel(pipeline);
-
   return (
-    <span className="inline-flex items-center gap-1 text-muted-foreground">
-      {level !== "fresh" && label && (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Clock className={`h-2.5 w-2.5 ${freshnessStyles[level]} cursor-default`} />
-          </TooltipTrigger>
-          <TooltipContent side="bottom">
-            Overdue — expected {pipeline.schedule.toLowerCase()}
-          </TooltipContent>
-        </Tooltip>
-      )}
+    <span className="text-muted-foreground">
       {pipeline.lastRun}
     </span>
   );

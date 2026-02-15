@@ -8,13 +8,15 @@ export function EventTimeline({ events }: { events: TimelineEvent[] }) {
   return (
     <div className="pl-4 sm:pl-6 py-3">
       {events.map((event, i) => (
-        <div key={i} className="flex gap-3 text-xs">
+        <div key={i} className="flex items-start gap-3 text-xs">
           {/* Icon column with connector line */}
           <div className="flex flex-col items-center w-3.5 flex-shrink-0">
             <div className="flex-shrink-0">
-              {event.status === "success"
-                ? <CheckCircle2 className="h-3.5 w-3.5 text-muted-foreground/60" />
-                : <StatusIcon status={event.status} />
+              {event.icon
+                ? event.icon
+                : event.status === "success"
+                  ? <CheckCircle2 className="h-3.5 w-3.5 text-muted-foreground/60" />
+                  : <StatusIcon status={event.status} />
               }
             </div>
             {/* Line segment below icon — only between items, not after last */}
@@ -23,8 +25,8 @@ export function EventTimeline({ events }: { events: TimelineEvent[] }) {
             )}
           </div>
           {/* Content */}
-          <div className="pt-px pb-2">
-            <span className={event.status === "success" ? "font-medium text-muted-foreground" : `font-medium ${statusColors[event.status]}`}>
+          <div className="pb-2">
+            <span className={`leading-3.5 ${event.status === "success" ? "font-medium text-muted-foreground" : `font-medium ${statusColors[event.status]}`}`}>
               {event.label}
             </span>
             {event.detail && (

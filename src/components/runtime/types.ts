@@ -1,3 +1,5 @@
+import type React from "react";
+
 export type RunStatus = "success" | "failed" | "running" | "warning";
 
 export interface PipelineRun {
@@ -26,4 +28,5 @@ export interface TimelineEvent {
   status: RunStatus;
   label: string;
   detail?: string;
+  icon?: React.ReactNode;
 }

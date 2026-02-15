@@ -1,8 +1,8 @@
-import { Activity, XCircle } from "lucide-react";
+import { Activity, XCircle, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { RunHistory } from "./run-history";
 import { EventTimeline } from "./event-timeline";
-import { FreshnessTimestamp } from "./freshness";
+import { FreshnessTimestamp, getFreshnessLevel } from "./freshness";
 import type { Pipeline, TimelineEvent } from "./types";
 
 function formatDuration(seconds: number): string {
@@ -20,10 +20,15 @@ function formatRows(n: number): string {
 }
 
 export function PipelineCard({ pipeline }: { pipeline: Pipeline }) {
-  const hasBody = pipeline.phases || pipeline.schemaChange || pipeline.status !== "success";
+  const freshness = getFreshnessLevel(pipeline);
+  const isOverdue = freshness !== "fresh" && pipeline.status !== "failed";
+  const hasBody = pipeline.phases || pipeline.schemaChange || pipeline.status !== "success" || isOverdue;
 
   // Build unified event list
   const events: TimelineEvent[] = [];
+  if (isOverdue) {
+    events.push({ status: "warning", label: "Overdue", detail: `Expected ${pipeline.schedule.toLowerCase()}`, icon: <Clock className="h-3.5 w-3.5 text-amber-600" /> });
+  }
   if (pipeline.phases) {
     pipeline.phases.forEach((phase) => {
       events.push({ status: phase.status, label: phase.name, detail: phase.detail });

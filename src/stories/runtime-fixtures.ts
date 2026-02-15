@@ -2,6 +2,8 @@
  * Shared fixture data for runtime component stories.
  */
 
+import { Clock } from "lucide-react";
+import { createElement } from "react";
 import type { Pipeline, TimelineEvent } from "@/components/runtime/types";
 
 // ─── Timeline events ─────────────────────────────────────────────
@@ -24,6 +26,10 @@ export const allSuccessEvents: TimelineEvent[] = [
 
 export const singleEvent: TimelineEvent[] = [
   { status: "failed", label: "Extract", detail: "API rate limit exceeded (429)" },
+];
+
+export const overdueEvent: TimelineEvent[] = [
+  { status: "warning", label: "Overdue", detail: "Expected every hour", icon: createElement(Clock, { className: "h-3.5 w-3.5 text-amber-600" }) },
 ];
 
 // ─── Pipeline fixtures ───────────────────────────────────────────

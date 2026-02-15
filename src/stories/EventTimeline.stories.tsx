@@ -5,6 +5,7 @@ import {
   schemaChangeEvent,
   allSuccessEvents,
   singleEvent,
+  overdueEvent,
 } from "./runtime-fixtures";
 
 const meta = {
@@ -44,6 +45,12 @@ export const AllSuccess: Story = {
 export const SingleEvent: Story = {
   args: {
     events: singleEvent,
+  },
+};
+
+export const Overdue: Story = {
+  args: {
+    events: overdueEvent,
   },
 };
 

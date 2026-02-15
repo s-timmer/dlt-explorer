@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, XCircle, AlertTriangle, Loader2 } from "lucide-react";
+import { CheckCircle2, XCircle, AlertTriangle, Loader2, Clock } from "lucide-react";
 import { AppNav } from "@/components/app-nav";
 import { PipelineCard } from "@/components/runtime/pipeline-card";
+import { getFreshnessLevel } from "@/components/runtime/freshness";
 import type { Pipeline, RunStatus } from "@/components/runtime/types";
 
 /* ── Mock data ────────────────────────────────────────────────── */
@@ -126,12 +127,13 @@ const pipelines: Pipeline[] = [
 
 /* ── Dashboard ────────────────────────────────────────────────── */
 
-type FilterType = "all" | RunStatus;
+type FilterType = "all" | RunStatus | "overdue";
 
 export function RuntimeDashboard() {
   const [filter, setFilter] = useState<FilterType>("all");
 
   const failedCount = pipelines.filter((p) => p.status === "failed").length;
+  const overdueCount = pipelines.filter((p) => getFreshnessLevel(p) !== "fresh").length;
   const warningCount = pipelines.filter((p) => p.status === "warning").length;
   const runningCount = pipelines.filter((p) => p.status === "running").length;
   const healthyCount = pipelines.filter((p) => p.status === "success").length;
@@ -139,7 +141,11 @@ export function RuntimeDashboard() {
   const sortOrder: Record<RunStatus, number> = { failed: 0, warning: 1, running: 2, success: 3 };
   const sorted = [...pipelines]
     .sort((a, b) => sortOrder[a.status] - sortOrder[b.status])
-    .filter((p) => filter === "all" || p.status === filter);
+    .filter((p) => {
+      if (filter === "all") return true;
+      if (filter === "overdue") return getFreshnessLevel(p) !== "fresh";
+      return p.status === filter;
+    });
 
   return (
     <div className="min-h-screen bg-background flex">
@@ -181,6 +187,19 @@ export function RuntimeDashboard() {
             >
               <XCircle className="h-3 w-3" />
               {failedCount} failed
+            </button>
+          )}
+          {overdueCount > 0 && (
+            <button
+              onClick={() => setFilter(filter === "overdue" ? "all" : "overdue")}
+              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs border border-transparent transition-colors ${
+                filter === "overdue"
+                  ? "bg-amber-500 text-white"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
+              }`}
+            >
+              <Clock className="h-3 w-3" />
+              {overdueCount} overdue
             </button>
           )}
           {warningCount > 0 && (
