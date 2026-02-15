@@ -187,3 +187,4 @@ globals.css (tokens) → components (use tokens) → Storybook stories (import f
 - When in doubt, go for the cleaner, simpler option
 - Desktop-first is fine
 - **Every design choice should be defensible** — traced back to the persona, their jobs, and the company strategy
+- **Never commit tokens, secrets, or API keys to the repository.** This is a public repo. Store secrets in GitHub Secrets or environment variables only. Use `${{ secrets.* }}` in GitHub Actions and `$ENV_VAR` in documentation.
