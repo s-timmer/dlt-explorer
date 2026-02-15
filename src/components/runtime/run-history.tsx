@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { PipelineRun, RunStatus } from "./types";
 
 const barColors: Record<RunStatus, string> = {
@@ -18,12 +18,12 @@ function formatDuration(seconds: number): string {
   return s > 0 ? `${m}m ${s}s` : `${m}m`;
 }
 
-const MAX_BAR_HEIGHT = 14; // px
-const MIN_BAR_HEIGHT = 3;  // px — even zero-duration runs get a dot
+const MAX_BAR_HEIGHT = 14;
+const MIN_BAR_HEIGHT = 3;
 
-const BAR_BASE = 4;    // px — default width
-const BAR_HOVER = 8;   // px — hovered bar
-const BAR_NEAR = 6;    // px — immediate neighbors
+const BAR_BASE = 4;
+const BAR_HOVER = 8;
+const BAR_NEAR = 6;
 
 function getBarWidth(index: number, hoveredIndex: number | null): number {
   if (hoveredIndex === null) return BAR_BASE;
@@ -43,39 +43,77 @@ function getBarOpacity(index: number, hoveredIndex: number | null): number {
 
 export function RunHistory({ runs }: { runs: PipelineRun[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+  const barRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const delayRef = useRef<ReturnType<typeof setTimeout>>();
   const reversed = [...runs].reverse();
 
-  // Find max duration to normalize bar heights
   const maxDuration = Math.max(...reversed.map((r) => r.duration), 1);
 
+  // Small delay on first hover, then instant switching between bars
+  useEffect(() => {
+    if (hoveredIndex !== null && !visible) {
+      delayRef.current = setTimeout(() => setVisible(true), 120);
+    }
+    if (hoveredIndex === null) {
+      setVisible(false);
+      clearTimeout(delayRef.current);
+    }
+    return () => clearTimeout(delayRef.current);
+  }, [hoveredIndex, visible]);
+
+  const hoveredRun = hoveredIndex !== null ? reversed[hoveredIndex] : null;
+  const tooltipLabel = hoveredRun
+    ? `${hoveredRun.timestamp}: ${hoveredRun.status}${hoveredRun.duration ? ` (${formatDuration(hoveredRun.duration)})` : ""}`
+    : "";
+
+  const bar = hoveredIndex !== null ? barRefs.current[hoveredIndex] : null;
+  const rect = bar?.getBoundingClientRect();
+
   return (
-    <div
-      className="flex items-end gap-px"
-      style={{ height: MAX_BAR_HEIGHT }}
-      onMouseLeave={() => setHoveredIndex(null)}
-    >
-      {reversed.map((run, i) => {
-        const height = run.duration > 0
-          ? Math.max(MIN_BAR_HEIGHT, Math.round((run.duration / maxDuration) * MAX_BAR_HEIGHT))
-          : MIN_BAR_HEIGHT;
+    <div onMouseLeave={() => setHoveredIndex(null)}>
+      <div
+        className="flex items-end gap-px"
+        style={{ height: MAX_BAR_HEIGHT }}
+      >
+        {reversed.map((run, i) => {
+          const height = run.duration > 0
+            ? Math.max(MIN_BAR_HEIGHT, Math.round((run.duration / maxDuration) * MAX_BAR_HEIGHT))
+            : MIN_BAR_HEIGHT;
 
-        const label = `${run.timestamp}: ${run.status}${run.duration ? ` (${formatDuration(run.duration)})` : ""}`;
+          return (
+            <div
+              key={i}
+              ref={(el) => { barRefs.current[i] = el; }}
+              className={`rounded-[1px] cursor-default transition-all duration-150 ease-out ${barColors[run.status]} ${run.status === "running" ? "animate-pulse" : ""}`}
+              style={{ height, width: getBarWidth(i, hoveredIndex), opacity: getBarOpacity(i, hoveredIndex) }}
+              onMouseEnter={() => setHoveredIndex(i)}
+            />
+          );
+        })}
+      </div>
 
-        return (
-          <Tooltip key={i}>
-            <TooltipTrigger asChild>
-              <div
-                className={`rounded-[1px] cursor-default transition-all duration-150 ease-out ${barColors[run.status]} ${run.status === "running" ? "animate-pulse" : ""}`}
-                style={{ height, width: getBarWidth(i, hoveredIndex), opacity: getBarOpacity(i, hoveredIndex) }}
-                onMouseEnter={() => setHoveredIndex(i)}
-              />
-            </TooltipTrigger>
-            <TooltipContent side="bottom">
-              {label}
-            </TooltipContent>
-          </Tooltip>
-        );
-      })}
+      {visible && rect && createPortal(
+        <div
+          className="fixed z-50 pointer-events-none transition-[left] duration-100 ease-out"
+          style={{
+            top: rect.bottom + 8,
+            left: rect.left + rect.width / 2,
+            transform: "translateX(-50%)",
+          }}
+        >
+          {/* Arrow */}
+          <div
+            className="mx-auto size-2 rotate-45 bg-foreground -mb-1"
+            style={{ marginLeft: "calc(50% - 4px)" }}
+          />
+          {/* Body */}
+          <div className="bg-foreground text-background rounded-md px-3 py-1.5 text-xs whitespace-nowrap">
+            {tooltipLabel}
+          </div>
+        </div>,
+        document.body,
+      )}
     </div>
   );
 }
