@@ -162,10 +162,10 @@ export function RuntimeDashboard() {
           <div className="flex gap-1 overflow-x-auto scrollbar-none">
           <button
             onClick={() => setFilter("all")}
-            className={`whitespace-nowrap flex-shrink-0 px-3 py-1 rounded-full text-xs transition-colors ${
+            className={`whitespace-nowrap flex-shrink-0 px-3 py-1 rounded-full text-xs border transition-colors ${
               filter === "all"
-                ? "bg-foreground text-background"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:ring-1 hover:ring-border"
+                ? "text-foreground bg-muted/80 border-muted-foreground/30"
+                : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
             }`}
           >
             All {pipelines.length}
@@ -173,10 +173,10 @@ export function RuntimeDashboard() {
           {failedCount > 0 && (
             <button
               onClick={() => setFilter(filter === "failed" ? "all" : "failed")}
-              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs transition-colors ${
+              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs border border-transparent transition-colors ${
                 filter === "failed"
                   ? "bg-red-500 text-white"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:ring-1 hover:ring-border"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
               }`}
             >
               <XCircle className="h-3 w-3" />
@@ -186,10 +186,10 @@ export function RuntimeDashboard() {
           {warningCount > 0 && (
             <button
               onClick={() => setFilter(filter === "warning" ? "all" : "warning")}
-              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs transition-colors ${
+              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs border border-transparent transition-colors ${
                 filter === "warning"
                   ? "bg-amber-500 text-white"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:ring-1 hover:ring-border"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
               }`}
             >
               <AlertTriangle className="h-3 w-3" />
@@ -199,10 +199,10 @@ export function RuntimeDashboard() {
           {runningCount > 0 && (
             <button
               onClick={() => setFilter(filter === "running" ? "all" : "running")}
-              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs transition-colors ${
+              className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs border border-transparent transition-colors ${
                 filter === "running"
                   ? "bg-blue-500 text-white"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:ring-1 hover:ring-border"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
               }`}
             >
               <Loader2 className="h-3 w-3" />
@@ -211,10 +211,10 @@ export function RuntimeDashboard() {
           )}
           <button
             onClick={() => setFilter(filter === "success" ? "all" : "success")}
-            className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs transition-colors ${
+            className={`whitespace-nowrap flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs border border-transparent transition-colors ${
               filter === "success"
                 ? "bg-emerald-500 text-white"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:ring-1 hover:ring-border"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted/80 hover:border-border"
             }`}
           >
             <CheckCircle2 className="h-3 w-3" />
