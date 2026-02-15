@@ -9,6 +9,7 @@ const preview: Preview = {
           'Design System',
           ['Overview', 'Vocabulary', 'Colors', 'Typography', 'Spacing & Radius', 'Composition'],
           'Explore',
+          'Runtime',
         ],
       },
     },

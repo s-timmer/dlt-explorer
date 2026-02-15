@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { AppNav } from "@/components/app-nav";
 
 export const metadata: Metadata = {
   title: "Design Rationale",
@@ -17,7 +18,8 @@ const sections = [
 export default function RationalePage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <AppNav />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12">
         {/* Header */}
         <nav className="mb-10">
           <Link

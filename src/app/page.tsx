@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Home, MessageSquare, Info, BookOpen, Folder, Table2 } from "lucide-react";
+import { Folder, Table2 } from "lucide-react";
+import { AppNav } from "@/components/app-nav";
 import { Card, CardContent } from "@/components/ui/card";
 import { RefreshButton } from "@/components/refresh-button";
 import { getDescriptions } from "@/lib/field-config";
@@ -37,48 +38,12 @@ export default async function CatalogPage() {
     .filter((t) => !t.table_name.startsWith("_dlt_"))
     .reduce((sum, t) => sum + t.row_count, 0);
 
-  const storybookUrl = process.env.NODE_ENV === "development"
-    ? "http://localhost:6006"
-    : "https://698ef1ee455ce2c83ed99d52-hhrnlzhbnd.chromatic.com/";
-
   return (
     <div className="min-h-screen bg-background flex">
-      {/* Vertical sidebar icons */}
-      <aside className="fixed left-0 top-0 h-screen w-10 flex flex-col items-center pt-6 gap-3 z-10">
-        <Link
-          href="/"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-          title="Catalog"
-        >
-          <Home className="h-4 w-4" />
-        </Link>
-        <Link
-          href="/explore"
-          className="text-muted-foreground/30 hover:text-muted-foreground transition-colors"
-          title="Explore datasets"
-        >
-          <MessageSquare className="h-4 w-4" />
-        </Link>
-        <Link
-          href="/rationale"
-          className="text-muted-foreground/30 hover:text-muted-foreground transition-colors"
-          title="About this project"
-        >
-          <Info className="h-4 w-4" />
-        </Link>
-        <a
-          href={storybookUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-muted-foreground/30 hover:text-muted-foreground transition-colors"
-          title="Storybook"
-        >
-          <BookOpen className="h-4 w-4" />
-        </a>
-      </aside>
+      <AppNav />
 
       {/* Main content */}
-      <div className="mx-auto max-w-6xl px-6 py-12 w-full flex-1 pl-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-10">
         {/* Header */}
         <header className="mb-10">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize">
