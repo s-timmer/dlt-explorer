@@ -5,10 +5,10 @@ import { createPortal } from "react-dom";
 import type { PipelineRun, RunStatus } from "./types";
 
 const barColors: Record<RunStatus, string> = {
-  success: "bg-emerald-400",
-  failed: "bg-red-400",
-  warning: "bg-amber-400",
-  running: "bg-blue-400",
+  success: "bg-emerald-500",
+  failed: "bg-red-500",
+  warning: "bg-amber-500",
+  running: "bg-blue-500",
 };
 
 function formatDuration(seconds: number): string {

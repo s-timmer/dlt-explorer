@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, MessageSquare, Info, BookOpen, Activity, Menu } from "lucide-react";
+import { Home, MessageSquare, Info, BookOpen, Activity, Menu, Palette } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 const storybookUrl = process.env.NODE_ENV === "development"
@@ -13,6 +13,7 @@ const navItems = [
   { href: "/", icon: Home, label: "Catalog" },
   { href: "/explore", icon: MessageSquare, label: "Explore" },
   { href: "/runtime", icon: Activity, label: "Runtime" },
+  { href: "/styleguide", icon: Palette, label: "Style Guide" },
   { href: "/rationale", icon: Info, label: "About" },
 ];
 

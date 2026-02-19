@@ -28,7 +28,7 @@ export function CompactCatalog({
         <button
           key={entity.tableName}
           onClick={() => onSelect(entity.tableName)}
-          className="px-4 py-3 rounded-lg cursor-pointer transition-colors text-left bg-muted/20 border border-border/50 text-muted-foreground hover:bg-muted/40 hover:text-foreground"
+          className="px-4 py-3 rounded-lg cursor-pointer transition-colors text-left bg-card border border-border/50 text-muted-foreground hover:bg-muted/40 hover:text-foreground"
         >
           <span className="text-sm font-semibold capitalize block">
             {entity.displayName}

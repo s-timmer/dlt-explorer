@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Folder, Table2 } from "lucide-react";
 import { AppNav } from "@/components/app-nav";
 import { Card, CardContent } from "@/components/ui/card";
-import { RefreshButton } from "@/components/refresh-button";
 import { getDescriptions } from "@/lib/field-config";
 import {
   getCatalog,
@@ -43,25 +42,20 @@ export default async function CatalogPage() {
       <AppNav />
 
       {/* Main content */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-10">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         {/* Header */}
-        <header className="mb-10">
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground capitalize">
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground capitalize">
             {metadata.dataset_name.replace(/_/g, " ")}
           </h1>
-          <div className="flex items-baseline justify-between gap-4 mt-2">
-            <p className="text-sm text-muted-foreground">
-              {metadata.source_label ?? metadata.pipeline_name} ·{" "}
-              {entities.length} datasets · {rowCountLabel(totalRows)} records
-            </p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground flex-shrink-0">
-              <span title={formatDate(metadata.last_loaded)}>
-                Updated {relativeTime(metadata.last_loaded)}
-              </span>
-              <RefreshButton />
-            </div>
-          </div>
-        </header>
+          <p className="text-sm text-muted-foreground mt-1">
+            {metadata.source_label ?? metadata.pipeline_name} ·{" "}
+            {entities.length} datasets · {rowCountLabel(totalRows)} records ·{" "}
+            <span title={formatDate(metadata.last_loaded)}>
+              updated {relativeTime(metadata.last_loaded)}
+            </span>
+          </p>
+        </div>
 
         {/* Datasets */}
         <section className="mb-12">

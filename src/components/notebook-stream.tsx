@@ -78,7 +78,7 @@ export function NotebookStream({
   return (
     <div className="flex flex-col h-[calc(100vh-3rem)]">
       {/* Metadata header — always visible */}
-      <header className="mb-element">
+      <header className="mb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-foreground capitalize">
           {metadata.dataset_name.replace(/_/g, " ")}
         </h1>

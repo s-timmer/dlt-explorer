@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import Link from "next/link";
+import { AppNav } from "@/components/app-nav";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -178,8 +179,9 @@ export default async function TableDetailPage({
   );
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="min-h-screen bg-background flex">
+      <AppNav />
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         {/* Breadcrumb */}
         <Breadcrumb className="mb-8">
           <BreadcrumbList>

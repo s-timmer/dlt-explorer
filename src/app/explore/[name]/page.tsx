@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { AppNav } from "@/components/app-nav";
 import { getFieldConfig, fieldSortScore, getDescriptions } from "@/lib/field-config";
 import {
   getCatalog,
@@ -73,8 +74,9 @@ export default async function ExplorePage({
   const displayName = name.replace(/__/g, " › ").replace(/_/g, " ");
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-4xl px-6 py-6">
+    <div className="min-h-screen bg-background flex">
+      <AppNav />
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         <h1 className="sr-only">Explore {displayName}</h1>
 
         {/* Back link */}
