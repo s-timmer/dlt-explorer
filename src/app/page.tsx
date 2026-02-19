@@ -42,7 +42,7 @@ export default async function CatalogPage() {
       <AppNav />
 
       {/* Main content */}
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground capitalize">

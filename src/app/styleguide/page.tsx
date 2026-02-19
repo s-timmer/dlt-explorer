@@ -99,7 +99,7 @@ export default function StyleguidePage() {
     <div className="min-h-screen bg-background flex">
       <AppNav />
 
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">
@@ -336,7 +336,7 @@ export default function StyleguidePage() {
               </div>
             </div>
             <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs font-mono text-muted-foreground">
-              <span>max-w-5xl</span>
+              <span>max-w-6xl</span>
               <span>px-4 sm:px-6</span>
               <span>py-8 sm:py-12</span>
               <span>sm:pl-14</span>

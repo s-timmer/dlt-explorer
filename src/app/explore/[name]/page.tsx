@@ -76,7 +76,7 @@ export default async function ExplorePage({
   return (
     <div className="min-h-screen bg-background flex">
       <AppNav />
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12 w-full flex-1 sm:pl-14">
         <h1 className="sr-only">Explore {displayName}</h1>
 
         {/* Back link */}
