@@ -8,7 +8,7 @@ export function EventTimeline({ events }: { events: TimelineEvent[] }) {
   return (
     <div className="pl-4 sm:pl-6 py-3">
       {events.map((event, i) => (
-        <div key={i} className="flex items-start gap-3 text-xs">
+        <div key={i} className="flex gap-3 text-xs">
           {/* Icon column with connector line */}
           <div className="flex flex-col items-center w-3.5 flex-shrink-0">
             <div className="flex-shrink-0">
