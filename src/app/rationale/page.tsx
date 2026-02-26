@@ -63,20 +63,20 @@ export default function RationalePage() {
               </h2>
               <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
-                  dltHub is a pip-installable data platform. The open-source library handles
-                  data loading, with 3M+ downloads/month across 5,000+ companies. The commercial
-                  platform adds team features: packages, contracts, catalogs, security. Pipeline
-                  builds are growing from 2,400 to 35,000+ per month, driven by AI-assisted
-                  development.
+                  dlt is an open-source Python library for data loading — pip-installable,
+                  with 3M+ downloads/month across 5,000+ companies. It handles extraction,
+                  normalization, and loading into databases. The commercial platform adds
+                  team features: packages, contracts, catalogs, security.
                 </p>
                 <p>
-                  Their strategy: make data infrastructure invisible by making it code. Code that
-                  AI can read. Code that data scientists can pip install. But the more invisible
-                  the infrastructure becomes, the more you need designed surfaces to make it
-                  legible. The data catalog felt like the right surface to start with.
+                  What caught my attention: dlt&apos;s strategy is to make data infrastructure
+                  invisible by making it code. Code that AI can read. Code that data scientists
+                  can pip install. But the more invisible the infrastructure becomes, the more
+                  you need designed surfaces to make it legible. The data catalog felt like the
+                  right surface to explore.
                 </p>
                 <p>
-                  The interesting thing is that dltHub is code-first by strategy. 300+ competitors
+                  The interesting thing is that dlt is code-first by strategy. 300+ competitors
                   built GUIs. Those GUIs can&apos;t be pip-installed, can&apos;t be read by LLMs,
                   can&apos;t be composed through Python dependencies. So where does design fit?
                 </p>
@@ -281,7 +281,7 @@ export default function RationalePage() {
               </h2>
               <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-2xl">
                 <p>
-                  After the catalog was built, dltHub published their{" "}
+                  After the catalog was built, the dlt team published their{" "}
                   <a
                     href="https://medium.com/@dlthub.com/were-building-dlthub-to-make-data-engineering-accessible-for-all-python-developers-0a57cb5eb5c0"
                     target="_blank"
@@ -390,7 +390,7 @@ export default function RationalePage() {
                   The design argument
                 </h3>
                 <p>
-                  This makes a specific claim aligned with dltHub&apos;s direction: the
+                  This makes a specific claim aligned with dlt&apos;s direction: the
                   notebook-as-conversation pattern is real, but the UX hasn&apos;t caught up.
                   Data scientists think in questions and answers, not code cells and execution
                   order. The explore view shows what the marimo notebook experience could feel
@@ -447,7 +447,7 @@ export default function RationalePage() {
                     as a reusable tool.
                   </li>
                   <li>
-                    <span className="font-medium text-foreground">Build (v2).</span> After dltHub&apos;s
+                    <span className="font-medium text-foreground">Build (v2).</span> After dlt&apos;s
                     vision announcement, added conversational exploration. Component-first workflow:
                     built each component in Storybook isolation, documented states and variants,
                     then composed the full page. 10 new components, 26 story variants, mock

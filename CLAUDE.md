@@ -6,9 +6,9 @@ A visual data explorer for dlt datasets. Two views: a catalog page listing entit
 This is NOT a website or SaaS dashboard. It's a data viewer — rendered output with sane, lightly branded UI choices. Like how `df.head()` renders a DataFrame with considered CSS, this is what dlt's output looks like when designed for its actual users.
 
 ## Context
-This is a portfolio piece for a Senior Product Designer interview at dltHub. The quality bar is high — every design decision should look intentional and be defensible.
+This is a design exploration of dlt, an open-source Python data loading library. The quality bar is high — every design decision should look intentional and be defensible.
 
-The key design argument: dlt+ is expanding beyond data engineers to serve **data scientists** — people who live in Jupyter notebooks, pandas, and matplotlib. The CTO's design target is "a working student who only knows Python, no SQL." They think in DataFrames and records, not tables and rows. The visual language for that audience is fundamentally different from developer tools.
+The key design argument: dlt is expanding beyond data engineers to serve **data scientists** — people who live in Jupyter notebooks, pandas, and matplotlib. Their design target is "a working student who only knows Python, no SQL." They think in DataFrames and records, not tables and rows. The visual language for that audience is fundamentally different from developer tools.
 
 ## The scenario
 A data scientist wants to understand the dlt-hub GitHub repository. They prompt an LLM: "Pull the GitHub data." The LLM generates a dlt pipeline, runs it, loads data into DuckDB. Then it renders the catalog: four entity cards (Issues, Pulls, Stargazers, Repo) with AI-generated descriptions. The data scientist scans, clicks in, evaluates. At no point do they open a separate app, learn SQL, or file a ticket.
@@ -182,7 +182,7 @@ globals.css (tokens) → components (use tokens) → Storybook stories (import f
   ```
 
 ## Important
-- This is a portfolio piece — visual polish matters more than feature count
+- This is a design exploration — visual polish matters more than feature count
 - Two views done beautifully beats five views done roughly
 - When in doubt, go for the cleaner, simpler option
 - Desktop-first is fine

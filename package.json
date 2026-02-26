@@ -1,7 +1,7 @@
 {
   "name": "dlt-explorer",
   "version": "0.1.0",
-  "description": "Data scientist native catalog viewer for dlt datasets — entity grouping, smart field ordering, AI-generated descriptions. Built as a design initiative for dltHub.",
+  "description": "Data scientist native catalog viewer for dlt datasets — entity grouping, smart field ordering, AI-generated descriptions.",
   "private": true,
   "scripts": {
     "dev": "next dev",
